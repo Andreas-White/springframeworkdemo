@@ -2,11 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Constructor injection -->
     <bean id="triangle"
           class="com.example.jbrainspringdemo.Triangle" >
-        <constructor-arg name="type" value="Equilateral" />
-        <constructor-arg name="height" value="20" />
+        <constructor-arg name="type" type="java.lang.String" value="Equilateral" />
+        <constructor-arg name="height" type="int" value="20" />
     </bean>
+    <!-- Setter injection -->
     <bean id="circle"
           class="com.example.jbrainspringdemo.Circle">
         <property name="radius" value="20" />
