@@ -31,6 +31,11 @@ public class Triangle implements Shape {
     }*/
 
     public void draw() {
-        System.out.println("Draw triangle of type " + getType() + " and height: " + getHeight());
+        if (getHeight() != 0 && getType() != null)
+            System.out.println("Draw triangle of type " + getType() + " and height: " + getHeight());
+        else if (getHeight() == 0)
+            System.out.println("Draw triangle of type " + getType());
+        else if (getType() == null)
+            System.out.println("Draw triangle of height: " + getHeight());
     }
 }
