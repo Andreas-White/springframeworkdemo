@@ -1,2 +1,6 @@
-package com.example.jbrainspringdemo;public interface Shape {
+package com.example.jbrainspringdemo;
+
+public interface Shape {
+
+    void draw();
 }

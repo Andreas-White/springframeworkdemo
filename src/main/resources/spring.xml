@@ -3,5 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="triangle"
-          class="com.example.jbrainspringdemo.Triangle" />
+          class="com.example.jbrainspringdemo.Triangle" >
+        <property name="type" value="Equilateral" />
+    </bean>
+    <bean id="circle"
+          class="com.example.jbrainspringdemo.Circle">
+        <property name="radius" value="20" />
+    </bean>
 </beans>
