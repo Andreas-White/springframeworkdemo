@@ -4,7 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="triangle"
           class="com.example.jbrainspringdemo.Triangle" >
-        <property name="type" value="Equilateral" />
+        <constructor-arg name="type" value="Equilateral" />
+        <constructor-arg name="height" value="20" />
     </bean>
     <bean id="circle"
           class="com.example.jbrainspringdemo.Circle">
