@@ -66,8 +66,34 @@
                 <property name="y" value="0"/>
             </bean>
         </property>
-
     </bean>
 
-
+    <!-- object injection with a list as property -->
+    <bean id="rectangle"
+          class="com.example.jbrainspringdemo.Rectangle">
+        <property name="list">
+            <list>
+                <ref bean="rectanglePointA"/>
+                <ref bean="rectanglePointB"/>
+                <ref bean="rectanglePointC"/>
+                <ref bean="rectanglePointD"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="rectanglePointA" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="2"/>
+        <property name="y" value="4"/>
+    </bean>
+    <bean id="rectanglePointB" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="2"/>
+        <property name="y" value="8"/>
+    </bean>
+    <bean id="rectanglePointC" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="8"/>
+        <property name="y" value="8"/>
+    </bean>
+    <bean id="rectanglePointD" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="8"/>
+        <property name="y" value="4"/>
+    </bean>
 </beans>

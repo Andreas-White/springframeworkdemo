@@ -33,5 +33,10 @@ public class DrawingApp {
         Square square = (Square) context.getBean("square");
         square.draw();
 
+        System.out.println("************************");
+        System.out.println("--Object injection with list as property--");
+        Rectangle rectangle = (Rectangle) context.getBean("rectangle");
+        rectangle.draw();
+
     }
 }
