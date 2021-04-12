@@ -17,6 +17,8 @@
     </bean>
 
     <!-- object injection -->
+    <!-- in case the objects (Points) are going to be injected only to other objects (square,triangle,circle etc)
+    throughout the program-->
     <bean id="polygon"
           class="com.example.jbrainspringdemo.Polygon" >
         <property name="center" ref="center" />
@@ -35,4 +37,37 @@
         <property name="x" value="20"/>
         <property name="y" value="0"/>
     </bean>
+
+    <!-- object injection with inner beans-->
+    <!-- in case the objects (Points) are going to be injected only to the specific object (square) -->
+    <bean id="square"
+          class="com.example.jbrainspringdemo.Square">
+        <property name="a" >
+            <bean class="com.example.jbrainspringdemo.Point">
+                <property name="x" value="2"/>
+                <property name="y" value="2"/>
+            </bean>
+        </property>
+        <property name="b">
+            <bean class="com.example.jbrainspringdemo.Point">
+                <property name="x" value="4"/>
+                <property name="y" value="2"/>
+            </bean>
+        </property>
+        <property name="c">
+            <bean class="com.example.jbrainspringdemo.Point">
+                <property name="x" value="4"/>
+                <property name="y" value="0"/>
+            </bean>
+        </property>
+        <property name="d">
+            <bean class="com.example.jbrainspringdemo.Point">
+                <property name="x" value="2"/>
+                <property name="y" value="0"/>
+            </bean>
+        </property>
+
+    </bean>
+
+
 </beans>
