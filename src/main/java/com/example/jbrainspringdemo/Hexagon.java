@@ -1,10 +1,11 @@
 package com.example.jbrainspringdemo;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Hexagon implements Shape, ApplicationContextAware {
+public class Hexagon implements Shape, ApplicationContextAware, BeanNameAware {
 
     private Point hexA;
     private Point hexB;
@@ -75,5 +76,10 @@ public class Hexagon implements Shape, ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.context = applicationContext;
+    }
+
+    @Override
+    public void setBeanName(String s) {
+        System.out.println("Bean name is: " + s);
     }
 }

@@ -129,6 +129,8 @@
     </bean>
 
     <!-- object injection with ApplicationContextAware -->
+    <!-- when we need to define beans inside other beans (inside the depended classes, like the Points called inside
+    Hexagon class) -->
     <bean id="hexagon"
           class="com.example.jbrainspringdemo.Hexagon">
         <property name="hexA" ref="hexA"/>
