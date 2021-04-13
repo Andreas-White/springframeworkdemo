@@ -33,10 +33,16 @@ public class DrawingApp {
         Square square = (Square) context.getBean("square");
         square.draw();
 
+        // Object injection with list as property
         System.out.println("************************");
         System.out.println("--Object injection with list as property--");
         Rectangle rectangle = (Rectangle) context.getBean("rectangle");
         rectangle.draw();
 
+        // Object injection with Autowiring
+        System.out.println("************************");
+        System.out.println("--Object injection with Autowiring--");
+        Pentagon pentagon = (Pentagon) context.getBean("pentagon");
+        pentagon.draw();
     }
 }

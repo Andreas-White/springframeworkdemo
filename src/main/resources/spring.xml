@@ -96,4 +96,35 @@
         <property name="x" value="8"/>
         <property name="y" value="4"/>
     </bean>
+
+    <!-- object injection with Autowiring -->
+    <bean id="pentagon"
+          class="com.example.jbrainspringdemo.Pentagon"
+          autowire="byName">
+    </bean>
+    <bean id="pointA"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="40"/>
+    </bean>
+    <bean id="pointB"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="60"/>
+        <property name="y" value="80"/>
+    </bean>
+    <bean id="pointC"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="100"/>
+        <property name="y" value="120"/>
+    </bean>
+    <bean id="pointD"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="140"/>
+        <property name="y" value="160"/>
+    </bean>
+    <bean id="pointE"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="200"/>
+        <property name="y" value="250"/>
+    </bean>
 </beans>
