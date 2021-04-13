@@ -1,6 +1,9 @@
 package com.example.jbrainspringdemo;
 
-public class Pentagon implements Shape{
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
+public class Pentagon implements Shape {
 
     private Point pointA;
     private Point pointB;

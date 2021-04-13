@@ -30,19 +30,26 @@ public class DrawingApp {
         System.out.println("************************");
         System.out.println("--Object injection with inner beans--");
         // Object injection with inner beans
-        Square square = (Square) context.getBean("square");
+        Shape square = (Square) context.getBean("square");
         square.draw();
 
         // Object injection with list as property
         System.out.println("************************");
         System.out.println("--Object injection with list as property--");
-        Rectangle rectangle = (Rectangle) context.getBean("rectangle");
+        Shape rectangle = (Rectangle) context.getBean("rectangle");
         rectangle.draw();
 
         // Object injection with Autowiring
         System.out.println("************************");
         System.out.println("--Object injection with Autowiring--");
-        Pentagon pentagon = (Pentagon) context.getBean("pentagon");
+        Shape pentagon = (Pentagon) context.getBean("pentagon");
         pentagon.draw();
+
+        // Object injection with ApplicationContextAware
+        System.out.println("************************");
+        System.out.println("--Object injection with ApplicationContextAware--");
+        Shape hexagon = (Hexagon) context.getBean("hexagon");
+        hexagon.draw();
+
     }
 }

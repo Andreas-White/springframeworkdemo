@@ -5,7 +5,7 @@
 
     <!-- Constructor injection -->
     <bean id="triangle"
-          class="com.example.jbrainspringdemo.Triangle" >
+          class="com.example.jbrainspringdemo.Triangle">
         <constructor-arg name="type" type="java.lang.String" value="Equilateral" />
         <constructor-arg name="height" type="int" value="20" />
     </bean>
@@ -126,5 +126,42 @@
           class="com.example.jbrainspringdemo.Point">
         <property name="x" value="200"/>
         <property name="y" value="250"/>
+    </bean>
+
+    <!-- object injection with ApplicationContextAware -->
+    <bean id="hexagon"
+          class="com.example.jbrainspringdemo.Hexagon">
+        <property name="hexA" ref="hexA"/>
+        <property name="hexB" ref="hexB"/>
+    </bean>
+    <bean id="hexA"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="40"/>
+    </bean>
+    <bean id="hexB"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="60"/>
+        <property name="y" value="40"/>
+    </bean>
+    <bean id="hexC"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="60"/>
+    </bean>
+    <bean id="hexD"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="120"/>
+        <property name="y" value="40"/>
+    </bean>
+    <bean id="hexE"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="50"/>
+        <property name="y" value="30"/>
+    </bean>
+    <bean id="hexF"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="60"/>
     </bean>
 </beans>
