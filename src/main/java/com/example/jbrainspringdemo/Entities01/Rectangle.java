@@ -1,4 +1,4 @@
-package com.example.jbrainspringdemo.Entities;
+package com.example.jbrainspringdemo.Entities01;
 
 import java.util.List;
 

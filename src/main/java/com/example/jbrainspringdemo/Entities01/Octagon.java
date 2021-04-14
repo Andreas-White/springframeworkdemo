@@ -1,4 +1,4 @@
-package com.example.jbrainspringdemo.Entities;
+package com.example.jbrainspringdemo.Entities01;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;

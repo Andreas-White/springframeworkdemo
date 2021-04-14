@@ -7,14 +7,14 @@
 
     <!-- Constructor injection -->
     <bean id="triangle"
-          class="com.example.jbrainspringdemo.Entities.Triangle">
+          class="com.example.jbrainspringdemo.Entities01.Triangle">
         <constructor-arg name="type" type="java.lang.String" value="Equilateral" />
         <constructor-arg name="height" type="int" value="20" />
     </bean>
 
     <!-- Setter injection -->
     <bean id="circle"
-          class="com.example.jbrainspringdemo.Entities.Circle">
+          class="com.example.jbrainspringdemo.Entities01.Circle">
         <property name="radius" value="20" />
     </bean>
 
@@ -22,20 +22,20 @@
     <!-- in case the objects (Points) are going to be injected only to other objects (square,triangle,circle etc)
     throughout the program-->
     <bean id="polygon"
-          class="com.example.jbrainspringdemo.Entities.Polygon" >
+          class="com.example.jbrainspringdemo.Entities01.Polygon" >
         <property name="center" ref="center" />
         <property name="downCenter" ref="centerDown"/>
         <property name="upCenter" ref="centerUp"/>
     </bean>
-    <bean id="center" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="center" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="20"/>
     </bean>
-    <bean id="centerUp" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="centerUp" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="40"/>
     </bean>
-    <bean id="centerDown" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="centerDown" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="0"/>
     </bean>
@@ -43,27 +43,27 @@
     <!-- object injection with inner beans-->
     <!-- in case the objects (Points) are going to be injected only to the specific object (square) -->
     <bean id="square"
-          class="com.example.jbrainspringdemo.Entities.Square">
+          class="com.example.jbrainspringdemo.Entities01.Square">
         <property name="a" >
-            <bean class="com.example.jbrainspringdemo.Entities.Point">
+            <bean class="com.example.jbrainspringdemo.Entities01.Point">
                 <property name="x" value="2"/>
                 <property name="y" value="2"/>
             </bean>
         </property>
         <property name="b">
-            <bean class="com.example.jbrainspringdemo.Entities.Point">
+            <bean class="com.example.jbrainspringdemo.Entities01.Point">
                 <property name="x" value="4"/>
                 <property name="y" value="2"/>
             </bean>
         </property>
         <property name="c">
-            <bean class="com.example.jbrainspringdemo.Entities.Point">
+            <bean class="com.example.jbrainspringdemo.Entities01.Point">
                 <property name="x" value="4"/>
                 <property name="y" value="0"/>
             </bean>
         </property>
         <property name="d">
-            <bean class="com.example.jbrainspringdemo.Entities.Point">
+            <bean class="com.example.jbrainspringdemo.Entities01.Point">
                 <property name="x" value="2"/>
                 <property name="y" value="0"/>
             </bean>
@@ -72,7 +72,7 @@
 
     <!-- object injection with a list as property -->
     <bean id="rectangle"
-          class="com.example.jbrainspringdemo.Entities.Rectangle">
+          class="com.example.jbrainspringdemo.Entities01.Rectangle">
         <property name="list">
             <list>
                 <ref bean="rectanglePointA"/>
@@ -82,50 +82,50 @@
             </list>
         </property>
     </bean>
-    <bean id="rectanglePointA" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="rectanglePointA" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="2"/>
         <property name="y" value="4"/>
     </bean>
-    <bean id="rectanglePointB" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="rectanglePointB" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="2"/>
         <property name="y" value="8"/>
     </bean>
-    <bean id="rectanglePointC" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="rectanglePointC" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="8"/>
         <property name="y" value="8"/>
     </bean>
-    <bean id="rectanglePointD" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="rectanglePointD" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="8"/>
         <property name="y" value="4"/>
     </bean>
 
     <!-- object injection with Autowiring -->
     <bean id="pentagon"
-          class="com.example.jbrainspringdemo.Entities.Pentagon"
+          class="com.example.jbrainspringdemo.Entities01.Pentagon"
           autowire="byName">
     </bean>
     <bean id="pointA"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="40"/>
     </bean>
     <bean id="pointB"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="60"/>
         <property name="y" value="80"/>
     </bean>
     <bean id="pointC"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="100"/>
         <property name="y" value="120"/>
     </bean>
     <bean id="pointD"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="140"/>
         <property name="y" value="160"/>
     </bean>
     <bean id="pointE"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="200"/>
         <property name="y" value="250"/>
     </bean>
@@ -134,99 +134,99 @@
     <!-- when we need to define beans inside other beans (inside the depended classes, like the Points called inside
     Hexagon class) -->
     <bean id="hexagon"
-          class="com.example.jbrainspringdemo.Entities.Hexagon">
+          class="com.example.jbrainspringdemo.Entities01.Hexagon">
         <property name="hexA" ref="hexA"/>
         <property name="hexB" ref="hexB"/>
     </bean>
     <bean id="hexA"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="40"/>
     </bean>
     <bean id="hexB"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="60"/>
         <property name="y" value="40"/>
     </bean>
     <bean id="hexC"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="0"/>
         <property name="y" value="60"/>
     </bean>
     <bean id="hexD"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="120"/>
         <property name="y" value="40"/>
     </bean>
     <bean id="hexE"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="50"/>
         <property name="y" value="30"/>
     </bean>
     <bean id="hexF"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="60"/>
     </bean>
 
     <!-- object injection with bean inheritance -->
     <bean id="parentHeptagon"
-          class="com.example.jbrainspringdemo.Entities.Heptagon">
+          class="com.example.jbrainspringdemo.Entities01.Heptagon">
         <property name="hepA" ref="hepA"/>
         <property name="hepB" ref="hepB"/>
         <property name="hepC" ref="hepC"/>
     </bean>
     <bean id="heptagon1"
-          class="com.example.jbrainspringdemo.Entities.Heptagon" parent="parentHeptagon">
+          class="com.example.jbrainspringdemo.Entities01.Heptagon" parent="parentHeptagon">
         <property name="hepD" ref="hepD"/>
         <property name="hepE" ref="hepE"/>
         <property name="hepF" ref="hepF"/>
         <property name="hepG" ref="hepG"/>
     </bean>
     <bean id="heptagon2"
-          class="com.example.jbrainspringdemo.Entities.Heptagon" parent="parentHeptagon">
+          class="com.example.jbrainspringdemo.Entities01.Heptagon" parent="parentHeptagon">
         <property name="hepF" ref="hepF"/>
         <property name="hepG" ref="hepG"/>
     </bean>
     <bean id="hepA"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="30"/>
     </bean>
     <bean id="hepB"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="30"/>
     </bean>
     <bean id="hepC"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="30"/>
     </bean>
     <bean id="hepD"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="30"/>
     </bean>
     <bean id="hepE"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="30"/>
     </bean>
     <bean id="hepF"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="30"/>
     </bean>
     <bean id="hepG"
-          class="com.example.jbrainspringdemo.Entities.Point">
+          class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="20"/>
         <property name="y" value="30"/>
     </bean>
 
     <!-- object injection / bean lifecycle /init-destroy methods (before and after execution)-->
     <bean id="octagon"
-          class="com.example.jbrainspringdemo.Entities.Octagon"
+          class="com.example.jbrainspringdemo.Entities01.Octagon"
           init-method="initMethod"
           destroy-method="destroyBean">
         <property name="octA" ref="octA"/>
@@ -238,35 +238,35 @@
         <property name="octG" ref="octG"/>
         <property name="octI" ref="octI"/>
     </bean>
-    <bean id="octA" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="octA" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="150"/>
         <property name="y" value="320"/>
     </bean>
-    <bean id="octB" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="octB" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="150"/>
         <property name="y" value="320"/>
     </bean>
-    <bean id="octC" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="octC" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="150"/>
         <property name="y" value="320"/>
     </bean>
-    <bean id="octD" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="octD" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="150"/>
         <property name="y" value="320"/>
     </bean>
-    <bean id="octE" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="octE" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="150"/>
         <property name="y" value="320"/>
     </bean>
-    <bean id="octF" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="octF" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="150"/>
         <property name="y" value="320"/>
     </bean>
-    <bean id="octG" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="octG" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="150"/>
         <property name="y" value="320"/>
     </bean>
-    <bean id="octI" class="com.example.jbrainspringdemo.Entities.Point">
+    <bean id="octI" class="com.example.jbrainspringdemo.Entities01.Point">
         <property name="x" value="150"/>
         <property name="y" value="320"/>
     </bean>

@@ -1,11 +1,11 @@
 package com.example.jbrainspringdemo;
 
-import com.example.jbrainspringdemo.Entities.*;
+import com.example.jbrainspringdemo.Entities01.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class DrawingApp {
+public class DrawingApp01 {
 
     public static void main(String[] args) {
         //BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
