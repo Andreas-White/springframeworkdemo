@@ -166,4 +166,60 @@
         <property name="x" value="20"/>
         <property name="y" value="60"/>
     </bean>
+
+    <!-- object injection with bean inheritance -->
+    <bean id="parentHeptagon"
+          class="com.example.jbrainspringdemo.Heptagon">
+        <property name="hepA" ref="hepA"/>
+        <property name="hepB" ref="hepB"/>
+        <property name="hepC" ref="hepC"/>
+    </bean>
+    <bean id="heptagon1"
+          class="com.example.jbrainspringdemo.Heptagon" parent="parentHeptagon">
+        <property name="hepD" ref="hepD"/>
+        <property name="hepE" ref="hepE"/>
+        <property name="hepF" ref="hepF"/>
+        <property name="hepG" ref="hepG"/>
+    </bean>
+    <bean id="heptagon2"
+          class="com.example.jbrainspringdemo.Heptagon" parent="parentHeptagon">
+        <property name="hepF" ref="hepF"/>
+        <property name="hepG" ref="hepG"/>
+    </bean>
+    <bean id="hepA"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="30"/>
+    </bean>
+    <bean id="hepB"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="30"/>
+    </bean>
+    <bean id="hepC"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="30"/>
+    </bean>
+    <bean id="hepD"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="30"/>
+    </bean>
+    <bean id="hepE"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="30"/>
+    </bean>
+    <bean id="hepF"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="30"/>
+    </bean>
+    <bean id="hepG"
+          class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="30"/>
+    </bean>
+
 </beans>

@@ -51,5 +51,10 @@ public class DrawingApp {
         Shape hexagon = (Hexagon) context.getBean("hexagon");
         hexagon.draw();
 
+        // Object injection with bean inheritance
+        System.out.println("************************");
+        System.out.println("--Object injection with bean inheritance--");
+        Shape heptagon = (Heptagon) context.getBean("heptagon1");
+        heptagon.draw();
     }
 }
