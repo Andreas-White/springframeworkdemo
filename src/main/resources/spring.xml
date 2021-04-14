@@ -225,7 +225,8 @@
     <!-- object injection / bean lifecycle -->
     <bean id="octagon"
           class="com.example.jbrainspringdemo.Octagon"
-          init-method="initMethod">
+          init-method="initMethod"
+          destroy-method="destroyBean">
         <property name="octA" ref="octA"/>
         <property name="octB" ref="octB"/>
         <property name="octC" ref="octC"/>
