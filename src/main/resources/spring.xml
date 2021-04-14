@@ -222,4 +222,49 @@
         <property name="y" value="30"/>
     </bean>
 
+    <!-- object injection / bean lifecycle -->
+    <bean id="octagon"
+          class="com.example.jbrainspringdemo.Octagon"
+          init-method="initMethod">
+        <property name="octA" ref="octA"/>
+        <property name="octB" ref="octB"/>
+        <property name="octC" ref="octC"/>
+        <property name="octD" ref="octD"/>
+        <property name="octE" ref="octE"/>
+        <property name="octF" ref="octF"/>
+        <property name="octG" ref="octG"/>
+        <property name="octI" ref="octI"/>
+    </bean>
+    <bean id="octA" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="150"/>
+        <property name="y" value="320"/>
+    </bean>
+    <bean id="octB" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="150"/>
+        <property name="y" value="320"/>
+    </bean>
+    <bean id="octC" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="150"/>
+        <property name="y" value="320"/>
+    </bean>
+    <bean id="octD" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="150"/>
+        <property name="y" value="320"/>
+    </bean>
+    <bean id="octE" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="150"/>
+        <property name="y" value="320"/>
+    </bean>
+    <bean id="octF" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="150"/>
+        <property name="y" value="320"/>
+    </bean>
+    <bean id="octG" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="150"/>
+        <property name="y" value="320"/>
+    </bean>
+    <bean id="octI" class="com.example.jbrainspringdemo.Point">
+        <property name="x" value="150"/>
+        <property name="y" value="320"/>
+    </bean>
 </beans>

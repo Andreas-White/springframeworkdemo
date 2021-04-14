@@ -1,6 +1,7 @@
 package com.example.jbrainspringdemo;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DrawingApp {
@@ -56,5 +57,13 @@ public class DrawingApp {
         System.out.println("--Object injection with bean inheritance--");
         Shape heptagon = (Heptagon) context.getBean("heptagon1");
         heptagon.draw();
+
+        // Object injection / bean lifecycle / AbstractApplicationContext
+        System.out.println("************************");
+        System.out.println("--Object injection / bean lifecycle--");
+        AbstractApplicationContext abstractContext = new ClassPathXmlApplicationContext("spring.xml");
+        abstractContext.registerShutdownHook();
+        Shape octagon = (Octagon) abstractContext.getBean("octagon");
+        octagon.draw();
     }
 }
