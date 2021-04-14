@@ -1,4 +1,4 @@
-package com.example.jbrainspringdemo;
+package com.example.jbrainspringdemo.Entities;
 
 public class Triangle implements Shape {
 

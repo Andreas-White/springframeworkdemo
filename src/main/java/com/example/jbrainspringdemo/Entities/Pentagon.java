@@ -1,7 +1,4 @@
-package com.example.jbrainspringdemo;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+package com.example.jbrainspringdemo.Entities;
 
 public class Pentagon implements Shape {
 
