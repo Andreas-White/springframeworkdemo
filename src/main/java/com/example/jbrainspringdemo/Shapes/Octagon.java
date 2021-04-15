@@ -1,4 +1,4 @@
-package com.example.jbrainspringdemo.Entities01;
+package com.example.jbrainspringdemo.Shapes;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
@@ -91,12 +91,12 @@ public class Octagon implements Shape, InitializingBean, DisposableBean {
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         System.out.println("InitialisingBeans init method called for Octagon class");
     }
 
     @Override
-    public void destroy() throws Exception {
+    public void destroy() {
         System.out.println("DisposableBean method called for Octagon class");
     }
 

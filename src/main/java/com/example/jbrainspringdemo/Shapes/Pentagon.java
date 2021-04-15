@@ -1,4 +1,4 @@
-package com.example.jbrainspringdemo.Entities01;
+package com.example.jbrainspringdemo.Shapes;
 
 public class Pentagon implements Shape {
 

@@ -1,4 +1,4 @@
-package com.example.jbrainspringdemo.Entities01;
+package com.example.jbrainspringdemo.Shapes;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;

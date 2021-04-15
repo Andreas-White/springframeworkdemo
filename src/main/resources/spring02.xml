@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="greece"
+          class="com.example.jbrainspringdemo.Countries.Greece" >
+        <property name="argos" ref="argos"/>
+        <property name="athens" ref="athens"/>
+    </bean>
+    <bean id="argos"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="Argos"/>
+    </bean>
+    <bean id="athens"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="Athens"/>
+    </bean>
+</beans>
