@@ -7,11 +7,13 @@ public class DisplayBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        return null;
+        System.out.println("In post processor Bean name is " + beanName);
+        return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        return null;
+        System.out.println("In after processor Bean name is " + beanName);
+        return bean;
     }
 }

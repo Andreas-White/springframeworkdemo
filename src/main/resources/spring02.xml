@@ -17,4 +17,7 @@
           class="com.example.jbrainspringdemo.Countries.City">
         <property name="name" value="Athens"/>
     </bean>
+
+    <bean class="com.example.jbrainspringdemo.DisplayBeanPostProcessor">
+    </bean>
 </beans>
