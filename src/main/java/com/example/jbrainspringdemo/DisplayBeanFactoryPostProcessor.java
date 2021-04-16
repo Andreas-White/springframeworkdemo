@@ -8,6 +8,6 @@ public class DisplayBeanFactoryPostProcessor implements BeanFactoryPostProcessor
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        System.out.println("inside the bean factory class");
+        System.out.println("Inside the bean factory class");
     }
 }
