@@ -17,7 +17,33 @@
           class="com.example.jbrainspringdemo.Countries.City">
         <property name="name" value="Athens"/>
     </bean>
+    <!-- Uncomment the following bean to display BeanPostProcessor class-->
+    <!--<bean class="com.example.jbrainspringdemo.DisplayBeanPostProcessor"/>-->
 
-    <bean class="com.example.jbrainspringdemo.DisplayBeanPostProcessor">
+    <!-- Object injection / BeanFactoryPostProcessor class display / Initialising values of Beans through
+    city.config file -->
+    <bean id="sweden"
+          class="com.example.jbrainspringdemo.Countries.Sweden">
+        <property name="malmo" ref="malmo"/>
+        <property name="lund" ref="lund"/>
+        <property name="kalmar" ref="kalmar"/>
+    </bean>
+    <bean id="malmo"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="${malmo.name}"/>
+    </bean>
+    <bean id="lund"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="${lund.name}"/>
+    </bean>
+    <bean id="kalmar"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="Kalmar"/>
+    </bean>
+    <!-- BeanFactoryPostProcessor initialisation -->
+    <bean class="com.example.jbrainspringdemo.DisplayBeanFactoryPostProcessor"/>
+    <!-- Loading values for the cityconfig.properties file -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="cityconfig.properties"/>
     </bean>
 </beans>

@@ -2,6 +2,7 @@ package com.example.jbrainspringdemo;
 
 import com.example.jbrainspringdemo.Countries.Country;
 import com.example.jbrainspringdemo.Countries.Greece;
+import com.example.jbrainspringdemo.Countries.Sweden;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,5 +17,13 @@ public class TravelApp {
         System.out.println("--Object injection / BeanPostProcessor class display--");
         Country greece = (Greece) context.getBean("greece");
         greece.travel();
+
+        // Object injection / BeanFactoryPostProcessor class display / Initialising values of Beans through
+        // city.config file
+        System.out.println("************************");
+        System.out.println("--Object injection / BeanFactoryPostProcessor class display / " +
+                "Initialising values of Beans through city.config file --");
+        Country sweden = (Sweden) context.getBean("sweden");
+        sweden.travel();
     }
 }
