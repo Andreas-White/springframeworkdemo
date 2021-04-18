@@ -46,4 +46,29 @@
     <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
         <property name="locations" value="cityconfig.properties"/>
     </bean>
+
+    <!-- Using Annotations / Required annotation (deprecated) -->
+    <bean id="egypt"
+          class="com.example.jbrainspringdemo.Countries.Egypt">
+        <property name="cities">
+            <list>
+                <ref bean="cairo"/>
+                <ref bean="alexandria"/>
+                <ref bean="thebes"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="cairo"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="${cairo.name}"/>
+    </bean>
+    <bean id="alexandria"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="${alexandria.name}"/>
+    </bean>
+    <bean id="thebes"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="${thebes.name}"/>
+    </bean>
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 </beans>

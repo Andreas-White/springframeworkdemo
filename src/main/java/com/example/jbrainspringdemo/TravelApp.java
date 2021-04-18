@@ -1,6 +1,7 @@
 package com.example.jbrainspringdemo;
 
 import com.example.jbrainspringdemo.Countries.Country;
+import com.example.jbrainspringdemo.Countries.Egypt;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -23,5 +24,10 @@ public class TravelApp {
                 "Initialising values of Beans through city.config file --");
         Country sweden = (Country) context.getBean("sweden");
         sweden.travel();
+
+        System.out.println("************************");
+        System.out.println("-- Using Annotations / Required annotation --");
+        Country egypt = (Egypt) context.getBean("egypt");
+        egypt.travel();
     }
 }

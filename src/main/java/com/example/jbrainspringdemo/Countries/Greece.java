@@ -1,5 +1,7 @@
 package com.example.jbrainspringdemo.Countries;
 
+import org.springframework.beans.factory.annotation.Required;
+
 public class Greece implements Country{
 
     private City athens;
