@@ -43,7 +43,7 @@
     <!-- BeanFactoryPostProcessor initialisation -->
     <bean class="com.example.jbrainspringdemo.DisplayBeanFactoryPostProcessor"/>
     <!-- Loading values for the cityconfig.properties file -->
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
         <property name="locations" value="cityconfig.properties"/>
     </bean>
 </beans>

@@ -1,8 +1,6 @@
 package com.example.jbrainspringdemo;
 
 import com.example.jbrainspringdemo.Countries.Country;
-import com.example.jbrainspringdemo.Countries.Greece;
-import com.example.jbrainspringdemo.Countries.Sweden;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
