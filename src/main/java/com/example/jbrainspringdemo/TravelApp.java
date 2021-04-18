@@ -2,6 +2,7 @@ package com.example.jbrainspringdemo;
 
 import com.example.jbrainspringdemo.Countries.Country;
 import com.example.jbrainspringdemo.Countries.Egypt;
+import com.example.jbrainspringdemo.Countries.Italy;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -29,5 +30,10 @@ public class TravelApp {
         System.out.println("-- Using Annotations / Required annotation --");
         Country egypt = (Egypt) context.getBean("egypt");
         egypt.travel();
+
+        System.out.println("************************");
+        System.out.println("-- Using Annotations / Required annotation --");
+        Country italy = (Italy) context.getBean("italy");
+        italy.travel();
     }
 }

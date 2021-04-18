@@ -42,10 +42,13 @@
     </bean>
     <!-- BeanFactoryPostProcessor initialisation -->
     <bean class="com.example.jbrainspringdemo.DisplayBeanFactoryPostProcessor"/>
+
+
     <!-- Loading values for the cityconfig.properties file -->
     <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
         <property name="locations" value="cityconfig.properties"/>
     </bean>
+
 
     <!-- Using Annotations / Required annotation (deprecated) -->
     <bean id="egypt"
@@ -71,4 +74,31 @@
         <property name="name" value="${thebes.name}"/>
     </bean>
     <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+    <bean id="italy"
+          class="com.example.jbrainspringdemo.Countries.Italy">
+        <property name="cities">
+            <list>
+                <ref bean="rome"/>
+                <ref bean="venice"/>
+                <ref bean="palermo"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="rome"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="${rome.name}"/>
+    </bean>
+    <bean id="venice"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="${venice.name}"/>
+    </bean>
+    <bean id="palermo"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="${palermo.name}"/>
+    </bean>
+
+    <!-- This is used with @Autowire in order to print beans by type (in our case City objects) -->
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
 </beans>
