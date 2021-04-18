@@ -75,15 +75,9 @@
     </bean>
     <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 
+    <!-- Using Autowire annotation with a list of objects -->
     <bean id="italy"
           class="com.example.jbrainspringdemo.Countries.Italy">
-        <property name="cities">
-            <list>
-                <ref bean="rome"/>
-                <ref bean="venice"/>
-                <ref bean="palermo"/>
-            </list>
-        </property>
     </bean>
     <bean id="rome"
           class="com.example.jbrainspringdemo.Countries.City">
@@ -99,6 +93,18 @@
     </bean>
 
     <!-- This is used with @Autowire in order to print beans by type (in our case City objects) -->
+    <!-- It can be used with a list and will find all the object of the same type or with single object,
+         if there are multiple single objects of the same types it will choose the one with the same name
+         as the name in the class (for example the Canada class with attribute toronto will choose bean with id toronto) -->
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
+    <!-- Using Autowire annotation with a single object City -->
+    <bean id="canada"
+          class="com.example.jbrainspringdemo.Countries.Canada">
+    </bean>
+
+    <bean id="toronto"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="${toronto.name}"/>
+    </bean>
 </beans>

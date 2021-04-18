@@ -1,5 +1,6 @@
 package com.example.jbrainspringdemo;
 
+import com.example.jbrainspringdemo.Countries.Canada;
 import com.example.jbrainspringdemo.Countries.Country;
 import com.example.jbrainspringdemo.Countries.Egypt;
 import com.example.jbrainspringdemo.Countries.Italy;
@@ -32,8 +33,14 @@ public class TravelApp {
         egypt.travel();
 
         System.out.println("************************");
-        System.out.println("-- Using Annotations / Required annotation --");
+        System.out.println("-- Using Autowire annotation with a list of objects --");
         Country italy = (Italy) context.getBean("italy");
         italy.travel();
+
+        System.out.println("************************");
+        System.out.println("-- Using Autowire annotation with a single object City --");
+        Country canada = (Canada) context.getBean("canada");
+        canada.travel();
+
     }
 }
