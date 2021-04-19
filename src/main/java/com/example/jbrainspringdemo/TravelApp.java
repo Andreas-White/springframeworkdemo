@@ -1,9 +1,6 @@
 package com.example.jbrainspringdemo;
 
-import com.example.jbrainspringdemo.Countries.Canada;
-import com.example.jbrainspringdemo.Countries.Country;
-import com.example.jbrainspringdemo.Countries.Egypt;
-import com.example.jbrainspringdemo.Countries.Italy;
+import com.example.jbrainspringdemo.Countries.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -42,5 +39,9 @@ public class TravelApp {
         Country canada = (Canada) context.getBean("canada");
         canada.travel();
 
+        System.out.println("************************");
+        System.out.println("-- Using Autowire and Qualifier annotation with single objects City --");
+        Country usa = (USA) context.getBean("u_s_a");
+        usa.travel();
     }
 }

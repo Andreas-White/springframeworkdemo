@@ -107,4 +107,19 @@
           class="com.example.jbrainspringdemo.Countries.City">
         <property name="name" value="${toronto.name}"/>
     </bean>
+
+    <!-- Using Autowire and Qualifier annotation with a single object City -->
+    <bean id="u_s_a"
+          class="com.example.jbrainspringdemo.Countries.USA">
+    </bean>
+    <bean id="city1"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <qualifier value="city1"/>
+        <property name="name" value="${usa.newYork}"/>
+    </bean>
+    <bean id="city2"
+          class="com.example.jbrainspringdemo.Countries.City">
+        <property name="name" value="${usa.california}"/>
+        <qualifier value="city2"/>
+    </bean>
 </beans>
