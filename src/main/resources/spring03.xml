@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- This is used with @Autowire in order to print beans by type (in our case City objects) -->
+    <!-- It can be used with a list and will find all the object of the same type or with single object,
+         if there are multiple single objects of the same types it will choose the one with the same name
+         as the name in the class (for example the Canada class with attribute toronto will choose bean with id toronto) -->
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+    <!-- Loading values for the cityconfig.properties file -->
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations" value="carconfig.properties"/>
+    </bean>
+
+
+
+    <bean id="renault"
+          class="com.example.jbrainspringdemo.Cars.Renault">
+    </bean>
+    <bean id="hpR"
+          class="com.example.jbrainspringdemo.Cars.HorsePower">
+        <property name="hp" value="${renault.hp}"/>
+    </bean>
+
+</beans>

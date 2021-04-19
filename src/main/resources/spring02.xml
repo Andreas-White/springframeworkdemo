@@ -98,6 +98,7 @@
          as the name in the class (for example the Canada class with attribute toronto will choose bean with id toronto) -->
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
+
     <!-- Using Autowire annotation with a single object City -->
     <bean id="canada"
           class="com.example.jbrainspringdemo.Countries.Canada">
@@ -122,4 +123,5 @@
         <property name="name" value="${usa.california}"/>
         <qualifier value="city2"/>
     </bean>
+
 </beans>
