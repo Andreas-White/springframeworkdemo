@@ -21,7 +21,7 @@ public class Renault implements Car{
 
     @Override
     public void drive() {
-        System.out.println("Renault has " + hpR.getHp() + " hp");
+        System.out.println("Renault has " + getHpR().getHp() + " hp");
     }
 
     @PostConstruct

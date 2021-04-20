@@ -31,4 +31,12 @@
         <property name="hp" value="80"/>
     </bean>
 
+    <bean id="fiat"
+          class="com.example.jbrainspringdemo.Cars.Fiat">
+    </bean>
+    <bean id="hpF"
+          class="com.example.jbrainspringdemo.Cars.HorsePower">
+        <property name="hp" value="${fiat.hp}"/>
+    </bean>
+
 </beans>
