@@ -13,7 +13,7 @@ public class DrivingApp {
         context.registerShutdownHook();
 
         System.out.println("************************");
-        System.out.println("--Object injection / BeanPostProcessor class display--");
+        System.out.println("-- Annotations : Resource, PostConstruct and PreDestroy --");
         Car renault = (Renault) context.getBean("renault");
         renault.drive();
     }
