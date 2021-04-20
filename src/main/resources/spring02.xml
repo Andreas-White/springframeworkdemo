@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- Object injection / BeanPostProcessor class display -->
     <bean id="greece"
@@ -96,8 +97,8 @@
     <!-- It can be used with a list and will find all the object of the same type or with single object,
          if there are multiple single objects of the same types it will choose the one with the same name
          as the name in the class (for example the Canada class with attribute toronto will choose bean with id toronto) -->
-    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
-
+    <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>-->
+    <context:annotation-config/>   <!-- This does the same as above without the need of calling every annotation -->
 
     <!-- Using Autowire annotation with a single object City -->
     <bean id="canada"
