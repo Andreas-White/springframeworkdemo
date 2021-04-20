@@ -13,7 +13,7 @@ public class USA implements Country{
     }
 
     @Autowired
-    @Qualifier("city1")
+    @Qualifier("city12")
     public void setCity1(City city1) {
         this.city1 = city1;
     }
@@ -23,7 +23,7 @@ public class USA implements Country{
     }
 
     @Autowired
-    @Qualifier("city2")
+    @Qualifier("city22")
     public void setCity2(City city2) {
         this.city2 = city2;
     }

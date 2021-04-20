@@ -114,15 +114,15 @@
     <bean id="u_s_a"
           class="com.example.jbrainspringdemo.Countries.USA">
     </bean>
-    <bean id="city1"
+    <bean id="city12"
           class="com.example.jbrainspringdemo.Countries.City">
-        <qualifier value="city1"/>
+        <qualifier value="city12"/>
         <property name="name" value="${usa.newYork}"/>
     </bean>
-    <bean id="city2"
+    <bean id="city22"
           class="com.example.jbrainspringdemo.Countries.City">
         <property name="name" value="${usa.california}"/>
-        <qualifier value="city2"/>
+        <qualifier value="city22"/>
     </bean>
 
 </beans>
