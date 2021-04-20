@@ -17,17 +17,18 @@
 
 
     <!-- Implementation of Renault class with PostConstruct / PreConstruct annotations-->
-    <bean id="renault"
+    <!--<bean id="renault"
           class="com.example.jbrainspringdemo.Cars.Renault"
           init-method="initialiseRenault"
           destroy-method="destroyRenault">
-    </bean>
+    </bean>-->
     <bean id="hpR"
           class="com.example.jbrainspringdemo.Cars.HorsePower">
         <property name="hp" value="${renault.hp}"/>
     </bean>
     <bean id="hpR1"
           class="com.example.jbrainspringdemo.Cars.HorsePower">
+        <qualifier value="hpRenault"/>
         <property name="hp" value="80"/>
     </bean>
 

@@ -20,7 +20,7 @@ public class DrivingApp {
         renault.drive();
 
         System.out.println("************************");
-        System.out.println("-- Annotations : Resource, PostConstruct and PreDestroy --");
+        System.out.println("-- Annotations : Component, Service, Repository and Controller --");
         Car fiat = (Fiat) context.getBean("fiat");
         fiat.drive();
     }
