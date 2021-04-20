@@ -2,8 +2,16 @@ package com.example.jbrainspringdemo.Cars;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Component
+//@Service    // If it was a service class (in our case works the same as @Component)
+//@Repository // If it was a data type (in our case works the same as @Component)
+//@Controller   // If it was a controller (from MVC) type (in our case works the same as @Component)
 public class Fiat implements Car{
 
     private HorsePower hpF;
@@ -13,6 +21,7 @@ public class Fiat implements Car{
     }
 
     @Autowired
+    //@Resource  //same as autowire
     public void setHpF(HorsePower hpF) {
         this.hpF = hpF;
     }
