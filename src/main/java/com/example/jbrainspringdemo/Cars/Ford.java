@@ -33,7 +33,7 @@ public class Ford implements Car{
 
     @Override
     public void drive() {
-        System.out.println("Ford has " + getHpF().getHp() + " hp");
+        System.out.println(this.messageSource.getMessage("ford",new Object[] {getHpF().getHp()},"No hp",null));
         System.out.println(this.messageSource.getMessage("greetingFord",null,"Default3",null));
     }
 }

@@ -57,11 +57,7 @@
     <!-- This Bean is required to print the messages -->
     <bean id="messageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basenames">
-            <list>
-                <value>messages</value>
-            </list>
-        </property>
+        <property name="basenames" value="messages"/>
     </bean>
     <!-- Required so the spring knows that it should look in our code (java classes) for beans, not only in the xml -->
     <!-- We also specify which package to look for so there is less look up time (in case of a large project) -->

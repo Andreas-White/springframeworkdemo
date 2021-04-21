@@ -41,7 +41,7 @@ public class Fiat implements Car{
 
     @Override
     public void drive() {
-        System.out.println("Fiat has " + getHpF().getHp() + " hp");
+        System.out.println(messageSource.getMessage("fiat",new Object[] {getHpF().getHp()},"No hp",null));
         System.out.println(messageSource.getMessage("greetingFiat",null,"Default2",null));
     }
 }

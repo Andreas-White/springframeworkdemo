@@ -36,7 +36,7 @@ public class Renault implements Car{
 
     @Override
     public void drive() {
-        System.out.println("Renault has " + getHpR().getHp() + " hp");
+        System.out.println(messageSource.getMessage("renault",new Object[] {getHpR().getHp()},"No hp",null));
         System.out.println(messageSource.getMessage("greetingRenault",null,"Default1",null));
     }
 
