@@ -45,6 +45,15 @@
         <qualifier value="fiatR"/>
         <property name="hp" value="${fiat.hp2}"/>
     </bean>
+
+
+    <!-- Implementation of Ford class -->
+    <bean id="hpF3"
+          class="com.example.jbrainspringdemo.Cars.HorsePower">
+        <qualifier value="fordR"/>
+        <property name="hp" value="${ford.hp}"/>
+    </bean>
+
     <!-- Required so the spring knows that it should look in our code (java classes) for beans, not only in the xml -->
     <!-- We also specify which package to look for so there is less look up time (in case of a large project) -->
     <context:component-scan base-package="com.example.jbrainspringdemo.Cars"/>
