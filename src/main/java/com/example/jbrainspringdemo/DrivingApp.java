@@ -1,9 +1,6 @@
 package com.example.jbrainspringdemo;
 
-import com.example.jbrainspringdemo.Cars.Car;
-import com.example.jbrainspringdemo.Cars.Fiat;
-import com.example.jbrainspringdemo.Cars.Ford;
-import com.example.jbrainspringdemo.Cars.Renault;
+import com.example.jbrainspringdemo.Cars.*;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -29,6 +26,11 @@ public class DrivingApp {
         System.out.println("-- Annotations : Component, Service, Repository and Controller --");
         Car ford = (Ford) context.getBean("ford");
         ford.drive();
+
+        System.out.println("************************");
+        System.out.println("-- Annotations : Component, Service, Repository and Controller --");
+        Car opel = (Opel) context.getBean("opel");
+        opel.drive();
 
     }
 }

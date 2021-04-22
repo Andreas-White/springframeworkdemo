@@ -54,6 +54,14 @@
         <property name="hp" value="${ford.hp}"/>
     </bean>
 
+    <!-- Implementation of Opel class / using messageSource for printing messages -->
+    <bean id="hpO1"
+          class="com.example.jbrainspringdemo.Cars.HorsePower">
+        <qualifier value="opelHP"/>
+        <property name="hp" value="${opel.hp}"/>
+    </bean>
+
+
     <!-- This Bean is required to print the messages -->
     <bean id="messageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource">
