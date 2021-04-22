@@ -1,15 +1,20 @@
 package com.example.jbrainspringdemo.Cars;
 
+import com.example.jbrainspringdemo.DriveEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Opel implements Car{
+public class Opel implements Car, ApplicationEventPublisherAware {
 
     private HorsePower hpO;
     private MessageSource messageSource;
+    private ApplicationEventPublisher publisher;
 
     public MessageSource getMessageSource() {
         return messageSource;
@@ -34,5 +39,12 @@ public class Opel implements Car{
     public void drive() {
         System.out.println(messageSource.getMessage("opel",new  Object[] {getHpO().getHp()},"No hp",null));
         System.out.println(messageSource.getMessage("greetingOpel",null,"Default4",null));
+        DriveEvent event = new DriveEvent(this);
+        publisher.publishEvent(event);
+    }
+
+    @Override
+    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+        this.publisher = applicationEventPublisher;
     }
 }

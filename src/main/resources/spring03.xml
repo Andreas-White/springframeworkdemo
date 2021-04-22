@@ -54,7 +54,7 @@
         <property name="hp" value="${ford.hp}"/>
     </bean>
 
-    <!-- Implementation of Opel class / using messageSource for printing messages -->
+    <!-- Implementation of Opel class / ApplicationListener -->
     <bean id="hpO1"
           class="com.example.jbrainspringdemo.Cars.HorsePower">
         <qualifier value="opelHP"/>
@@ -67,9 +67,12 @@
           class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames" value="messages"/>
     </bean>
+
     <!-- Required so the spring knows that it should look in our code (java classes) for beans, not only in the xml -->
     <!-- We also specify which package to look for so there is less look up time (in case of a large project) -->
-    <context:component-scan base-package="com.example.jbrainspringdemo.Cars"/>
+    <context:component-scan base-package="com.example.jbrainspringdemo"/>
+    <!--<context:component-scan base-package="com.example.jbrainspringdemo.Cars"/>-->
+
     <!-- Defines all the related annotations -->
     <context:annotation-config/>
 

@@ -23,12 +23,12 @@ public class DrivingApp {
         fiat.drive();
 
         System.out.println("************************");
-        System.out.println("-- Annotations : Component, Service, Repository and Controller --");
+        System.out.println("-- using messageSource for printing messages --");
         Car ford = (Ford) context.getBean("ford");
         ford.drive();
 
         System.out.println("************************");
-        System.out.println("-- Annotations : Component, Service, Repository and Controller --");
+        System.out.println("-- ApplicationEvent / ApplicationListener /ApplicationEventPublisher /ApplicationEventPublisherAware --");
         Car opel = (Opel) context.getBean("opel");
         opel.drive();
 
