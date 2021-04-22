@@ -1,23 +1,22 @@
 package com.example.jbrainspringdemo.Cars;
 
+import com.example.jbrainspringdemo.DriveEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 @Component
 //@Service    // If it was a service class (in our case works the same as @Component)
 //@Repository // If it was a data type (in our case works the same as @Component)
 //@Controller   // If it was a controller (from MVC) type (in our case works the same as @Component)
-public class Fiat implements Car{
+public class Fiat implements Car, ApplicationEventPublisherAware {
 
     private HorsePower hpF;
     private MessageSource messageSource;
+    private ApplicationEventPublisher publisher;
 
     public MessageSource getMessageSource() {
         return messageSource;
@@ -43,5 +42,12 @@ public class Fiat implements Car{
     public void drive() {
         System.out.println(messageSource.getMessage("fiat",new Object[] {getHpF().getHp()},"No hp",null));
         System.out.println(messageSource.getMessage("greetingFiat",null,"Default2",null));
+        DriveEvent event = new DriveEvent(this);
+        publisher.publishEvent(event);
+    }
+
+    @Override
+    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+        this.publisher = applicationEventPublisher;
     }
 }
