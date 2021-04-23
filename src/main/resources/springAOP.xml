@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <aop:aspectj-autoproxy/>
+    <context:annotation-config/>
+    <context:component-scan base-package="com.example.jbrainsAOPdemo"/>
+
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations" value="animalconfig.properties"/>
+    </bean>
+
+    <bean id="dog"
+          class="com.example.jbrainsAOPdemo.animals.Dog">
+        <property name="name" value="${dog.name}"/>
+        <qualifier value="dogQ"/>
+    </bean>
+    <bean id="cat"
+          class="com.example.jbrainsAOPdemo.animals.Cat">
+        <property name="name" value="${cat.name}"/>
+        <qualifier value="catQ"/>
+    </bean>
+    <bean id="bird"
+          class="com.example.jbrainsAOPdemo.animals.Bird">
+        <property name="name" value="${bird.name}"/>
+        <qualifier value="birdQ"/>
+    </bean>
+
+</beans>
