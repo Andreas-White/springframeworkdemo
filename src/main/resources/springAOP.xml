@@ -34,4 +34,7 @@
         <qualifier value="birdQ"/>
     </bean>
 
+    <bean id="animalService"
+          class="com.example.jbrainsAOPdemo.service.AnimalService" autowire="byName"/>
+
 </beans>
