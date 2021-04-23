@@ -18,30 +18,30 @@
 
     <!-- Implementation of Renault class with PostConstruct / PreConstruct annotations-->
     <!--<bean id="renault"
-          class="com.example.jbrainspringdemo.Cars.Renault"
+          class="com.example.jbrainSpringdemo.Cars.Renault"
           init-method="initialiseRenault"
           destroy-method="destroyRenault">
     </bean>-->
     <bean id="hpR"
-          class="com.example.jbrainspringdemo.Cars.HorsePower">
+          class="com.example.jbrainSpringdemo.Cars.HorsePower">
         <property name="hp" value="${renault.hp}"/>
     </bean>
     <bean id="hpR1"
-          class="com.example.jbrainspringdemo.Cars.HorsePower">
+          class="com.example.jbrainSpringdemo.Cars.HorsePower">
         <qualifier value="hpRenault"/>
         <property name="hp" value="80"/>
     </bean>
 
     <!-- Implementation of Fiat class with Component annotations-->
     <!--<bean id="fiat"
-          class="com.example.jbrainspringdemo.Cars.Fiat">
+          class="com.example.jbrainSpringdemo.Cars.Fiat">
     </bean>-->
     <bean id="hpF1"
-          class="com.example.jbrainspringdemo.Cars.HorsePower">
+          class="com.example.jbrainSpringdemo.Cars.HorsePower">
         <property name="hp" value="${fiat.hp}"/>
     </bean>
     <bean id="hpF2"
-          class="com.example.jbrainspringdemo.Cars.HorsePower">
+          class="com.example.jbrainSpringdemo.Cars.HorsePower">
         <qualifier value="fiatR"/>
         <property name="hp" value="${fiat.hp2}"/>
     </bean>
@@ -49,14 +49,14 @@
 
     <!-- Implementation of Ford class / using messageSource for printing messages -->
     <bean id="hpF3"
-          class="com.example.jbrainspringdemo.Cars.HorsePower">
+          class="com.example.jbrainSpringdemo.Cars.HorsePower">
         <qualifier value="fordR"/>
         <property name="hp" value="${ford.hp}"/>
     </bean>
 
     <!-- Implementation of Opel class / ApplicationListener -->
     <bean id="hpO1"
-          class="com.example.jbrainspringdemo.Cars.HorsePower">
+          class="com.example.jbrainSpringdemo.Cars.HorsePower">
         <qualifier value="opelHP"/>
         <property name="hp" value="${opel.hp}"/>
     </bean>
@@ -70,8 +70,8 @@
 
     <!-- Required so the spring knows that it should look in our code (java classes) for beans, not only in the xml -->
     <!-- We also specify which package to look for so there is less look up time (in case of a large project) -->
-    <context:component-scan base-package="com.example.jbrainspringdemo"/>
-    <!--<context:component-scan base-package="com.example.jbrainspringdemo.Cars"/>-->
+    <context:component-scan base-package="com.example.jbrainSpringdemo"/>
+    <!--<context:component-scan base-package="com.example.jbrainSpringdemo.Cars"/>-->
 
     <!-- Defines all the related annotations -->
     <context:annotation-config/>

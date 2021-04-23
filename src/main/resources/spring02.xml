@@ -6,43 +6,43 @@
 
     <!-- Object injection / BeanPostProcessor class display -->
     <bean id="greece"
-          class="com.example.jbrainspringdemo.Countries.Greece" >
+          class="com.example.jbrainSpringdemo.Countries.Greece" >
         <property name="argos" ref="argos"/>
         <property name="athens" ref="athens"/>
     </bean>
     <bean id="argos"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="Argos"/>
     </bean>
     <bean id="athens"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="Athens"/>
     </bean>
     <!-- Uncomment the following bean to display BeanPostProcessor class-->
-    <!--<bean class="com.example.jbrainspringdemo.DisplayBeanPostProcessor"/>-->
+    <!--<bean class="com.example.jbrainSpringdemo.DisplayBeanPostProcessor"/>-->
 
     <!-- Object injection / BeanFactoryPostProcessor class display / Initialising values of Beans through
     city.config file -->
     <bean id="sweden"
-          class="com.example.jbrainspringdemo.Countries.Sweden">
+          class="com.example.jbrainSpringdemo.Countries.Sweden">
         <property name="malmo" ref="malmo"/>
         <property name="lund" ref="lund"/>
         <property name="kalmar" ref="kalmar"/>
     </bean>
     <bean id="malmo"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="${malmo.name}"/>
     </bean>
     <bean id="lund"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="${lund.name}"/>
     </bean>
     <bean id="kalmar"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="Kalmar"/>
     </bean>
     <!-- BeanFactoryPostProcessor initialisation -->
-    <bean class="com.example.jbrainspringdemo.DisplayBeanFactoryPostProcessor"/>
+    <bean class="com.example.jbrainSpringdemo.DisplayBeanFactoryPostProcessor"/>
 
 
     <!-- Loading values for the cityconfig.properties file -->
@@ -53,7 +53,7 @@
 
     <!-- Using Annotations / Required annotation (deprecated) -->
     <bean id="egypt"
-          class="com.example.jbrainspringdemo.Countries.Egypt">
+          class="com.example.jbrainSpringdemo.Countries.Egypt">
         <property name="cities">
             <list>
                 <ref bean="cairo"/>
@@ -63,33 +63,33 @@
         </property>
     </bean>
     <bean id="cairo"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="${cairo.name}"/>
     </bean>
     <bean id="alexandria"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="${alexandria.name}"/>
     </bean>
     <bean id="thebes"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="${thebes.name}"/>
     </bean>
     <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 
     <!-- Using Autowire annotation with a list of objects -->
     <bean id="italy"
-          class="com.example.jbrainspringdemo.Countries.Italy">
+          class="com.example.jbrainSpringdemo.Countries.Italy">
     </bean>
     <bean id="rome"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="${rome.name}"/>
     </bean>
     <bean id="venice"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="${venice.name}"/>
     </bean>
     <bean id="palermo"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="${palermo.name}"/>
     </bean>
 
@@ -102,25 +102,25 @@
 
     <!-- Using Autowire annotation with a single object City -->
     <bean id="canada"
-          class="com.example.jbrainspringdemo.Countries.Canada">
+          class="com.example.jbrainSpringdemo.Countries.Canada">
     </bean>
 
     <bean id="toronto"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="${toronto.name}"/>
     </bean>
 
     <!-- Using Autowire and Qualifier annotation with a single object City -->
     <bean id="u_s_a"
-          class="com.example.jbrainspringdemo.Countries.USA">
+          class="com.example.jbrainSpringdemo.Countries.USA">
     </bean>
     <bean id="city12"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <qualifier value="city12"/>
         <property name="name" value="${usa.newYork}"/>
     </bean>
     <bean id="city22"
-          class="com.example.jbrainspringdemo.Countries.City">
+          class="com.example.jbrainSpringdemo.Countries.City">
         <property name="name" value="${usa.california}"/>
         <qualifier value="city22"/>
     </bean>
