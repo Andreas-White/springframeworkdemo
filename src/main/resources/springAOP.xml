@@ -18,6 +18,7 @@
         <property name="locations" value="animalconfig.properties"/>
     </bean>
 
+
     <bean id="dog"
           class="com.example.jbrainsAOPdemo.animals.Dog">
         <property name="name" value="${dog.name}"/>
