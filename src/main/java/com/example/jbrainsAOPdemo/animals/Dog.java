@@ -3,7 +3,7 @@ package com.example.jbrainsAOPdemo.animals;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Dog implements Animal{
+public class Dog {
 
     private String name;
 
@@ -15,7 +15,7 @@ public class Dog implements Animal{
         this.name = name;
     }
 
-    @Override
+
     public void makeNoise() {
 
     }

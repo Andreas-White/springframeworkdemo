@@ -34,7 +34,11 @@
         <qualifier value="birdQ"/>
     </bean>
 
+    <!-- A Bean for the AnimalService class to Autowire the Animal classes -->
     <bean id="animalService"
-          class="com.example.jbrainsAOPdemo.service.AnimalService" autowire="byName"/>
+          class="com.example.jbrainsAOPdemo.service.AnimalService"/>
 
+    <!-- In order spring to find the aspect class (LoggingAspect) -->
+    <bean id="loggingAspect"
+          class="com.example.jbrainsAOPdemo.aspect.LoggingAspect"/>
 </beans>
