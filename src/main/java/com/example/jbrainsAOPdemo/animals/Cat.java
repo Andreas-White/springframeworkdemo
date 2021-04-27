@@ -17,6 +17,6 @@ public class Cat {
 
 
     public void makeNoise() {
-
+        System.out.println("the cat meows");
     }
 }

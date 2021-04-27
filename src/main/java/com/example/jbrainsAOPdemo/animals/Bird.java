@@ -17,6 +17,6 @@ public class Bird {
 
 
     public void makeNoise() {
-
+        System.out.println("The bird sings");
     }
 }

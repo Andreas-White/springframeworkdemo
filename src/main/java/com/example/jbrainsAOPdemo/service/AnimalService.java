@@ -20,6 +20,7 @@ public class AnimalService {
     @Qualifier("dogQ")
     public void setDog(Dog dog) {
         this.dog = dog;
+        this.dog.makeNoise();
     }
 
     public Cat getCat() {
@@ -30,6 +31,7 @@ public class AnimalService {
     @Qualifier("catQ")
     public void setCat(Cat cat) {
         this.cat = cat;
+        this.cat.makeNoise();
     }
 
     public Bird getBird() {
@@ -40,5 +42,6 @@ public class AnimalService {
     @Qualifier("birdQ")
     public void setBird(Bird bird) {
         this.bird = bird;
+        this.bird.makeNoise();
     }
 }

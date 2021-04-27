@@ -38,8 +38,18 @@ public class LoggingAspect {
         System.out.println("Third Advice run. Message displayed before all getName methods");
     }
 
+    // Displays a logging message before every executed makeNoise() method
+    @Before("allNoises()")
+    public void loggingAdviceAllNoises() {
+        System.out.println("This advice displays the sounds that animals make");
+    }
+
     // Is if we need to apply the same wild cards for a lot of advices, instead of specifying the wild card
     // for each advice we can give as argument the name of the method annotated with @Pointcut
     @Pointcut("execution(public * com.example.jbrainsAOPdemo.animals.Dog.get*())")
     public void allGetters() {}
+
+    // Pointing the logging advice to all makeNoise() methods
+    @Pointcut("execution(public * *.makeNoise())")
+    public void allNoises() {}
 }
