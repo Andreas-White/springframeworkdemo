@@ -14,5 +14,6 @@ public class AOPMain {
         System.out.println(service.getDog().getName());
         System.out.println(service.getCat().getName());
         System.out.println(service.getBird().getName());
+        System.out.println(service.getLion().getName());
     }
 }

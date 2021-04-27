@@ -34,6 +34,11 @@
         <property name="name" value="${bird.name}"/>
         <qualifier value="birdQ"/>
     </bean>
+    <bean id="lion"
+          class="com.example.jbrainsAOPdemo.animals.Lion">
+        <property name="name" value="${lion.name}"/>
+        <qualifier value="lionQ"/>
+    </bean>
 
     <!-- A Bean for the AnimalService class to Autowire the Animal classes -->
     <bean id="animalService"
