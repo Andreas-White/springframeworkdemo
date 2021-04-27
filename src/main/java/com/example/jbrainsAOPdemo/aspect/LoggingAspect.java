@@ -1,5 +1,7 @@
 package com.example.jbrainsAOPdemo.aspect;
 
+import com.example.jbrainsAOPdemo.animals.Horse;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -20,7 +22,7 @@ public class LoggingAspect {
     }
 
     // This is best practise to combine Pointcuts
-    @Before("allCat() && allGetters()")
+    @Before("allCat() && allDogGetters()")
     public void allCatGetters() {
         System.out.println("This advice will be displayed before every get method from Cat class is executed");
     }
@@ -39,7 +41,7 @@ public class LoggingAspect {
         System.out.println("Second Advice run. Message displayed before all get methods");
     }
 
-    @Before("allGetters()")
+    @Before("allDogGetters()")
     public void loggingAdviceAllPoints() {
         System.out.println("Third Advice run. Message displayed before all getName methods");
     }
@@ -53,6 +55,7 @@ public class LoggingAspect {
     @Before("allLion()")
     public void loggingAdviceAllLionMethods() {
         System.out.println("Messages displayed before a Lion method is executed");
+
     }
 
     @Before("allBird()")
@@ -60,10 +63,17 @@ public class LoggingAspect {
         System.out.println("Messages displayed before a Bird method is executed");
     }
 
+    @Before("allHorseMethods()")
+    public void loggingAdviceHorse(JoinPoint joinPoint) {
+        System.out.println("Advice displayed before a horse method executes");
+        Horse horse = (Horse) joinPoint.getTarget(); // In order to call a horse object to use
+        System.out.println(joinPoint.getTarget());
+    }
+
     // Is if we need to apply the same wild cards for a lot of advices, instead of specifying the wild card
     // for each advice we can give as argument the name of the method annotated with @Pointcut
     @Pointcut("execution(public * com.example.jbrainsAOPdemo.animals.Dog.get*())")
-    public void allGetters() {}
+    public void allDogGetters() {}
 
     // Pointing the logging advice to all makeNoise() methods
     @Pointcut("execution(public * *.makeNoise())")
@@ -79,4 +89,7 @@ public class LoggingAspect {
 
     @Pointcut("within(com.example.jbrainsAOPdemo.animals.Cat)")
     public void allCat() {}
+
+    @Pointcut("within(com.example.jbrainsAOPdemo.animals.Horse)")
+    public void allHorseMethods() {}
 }

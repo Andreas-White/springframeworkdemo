@@ -1,9 +1,6 @@
 package com.example.jbrainsAOPdemo.service;
 
-import com.example.jbrainsAOPdemo.animals.Bird;
-import com.example.jbrainsAOPdemo.animals.Cat;
-import com.example.jbrainsAOPdemo.animals.Dog;
-import com.example.jbrainsAOPdemo.animals.Lion;
+import com.example.jbrainsAOPdemo.animals.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -13,6 +10,18 @@ public class AnimalService {
     private Cat cat;
     private Bird bird;
     private Lion lion;
+    private Horse horse;
+
+    public Horse getHorse() {
+        return horse;
+    }
+
+    @Autowired
+    @Qualifier("horseQ")
+    public void setHorse(Horse horse) {
+        this.horse = horse;
+        this.horse.makeNoise();
+    }
 
     public Lion getLion() {
         return lion;
