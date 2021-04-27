@@ -19,6 +19,12 @@ public class LoggingAspect {
         System.out.println("Advice run. Called before get method execution for the Cat class");
     }
 
+    // This is best practise to combine Pointcuts
+    @Before("allCat() && allGetters()")
+    public void allCatGetters() {
+        System.out.println("This advice will be displayed before every get method from Cat class is executed");
+    }
+
     // Runs this method before the specified method in the Before annotation
     @Before("execution(public String com.example.jbrainsAOPdemo.animals.Bird.getName())")
     public void loggingAdviceBird() {
@@ -44,6 +50,16 @@ public class LoggingAspect {
         System.out.println("This advice displays the sounds that animals make");
     }
 
+    @Before("allLion()")
+    public void loggingAdviceAllLionMethods() {
+        System.out.println("Messages displayed before a Lion method is executed");
+    }
+
+    @Before("allBird()")
+    public void loggingAdviceAllBirdMethods() {
+        System.out.println("Messages displayed before a Bird method is executed");
+    }
+
     // Is if we need to apply the same wild cards for a lot of advices, instead of specifying the wild card
     // for each advice we can give as argument the name of the method annotated with @Pointcut
     @Pointcut("execution(public * com.example.jbrainsAOPdemo.animals.Dog.get*())")
@@ -52,4 +68,15 @@ public class LoggingAspect {
     // Pointing the logging advice to all makeNoise() methods
     @Pointcut("execution(public * *.makeNoise())")
     public void allNoises() {}
+
+    // by using execution we use method names as parameters
+    @Pointcut("execution(* *com.example.jbrainsAOPdemo.animals.Lion.*(..))")
+    public void allLion() {}
+
+    // by using within we use class names as parameters
+    @Pointcut("within(com.example.jbrainsAOPdemo.animals.Bird)")
+    public void allBird() {}
+
+    @Pointcut("within(com.example.jbrainsAOPdemo.animals.Cat)")
+    public void allCat() {}
 }

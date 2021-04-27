@@ -11,9 +11,13 @@ public class AOPMain {
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("springAOP.xml");
         AnimalService service = context.getBean("animalService",AnimalService.class);
 
-        System.out.println(service.getDog().getName());
-        System.out.println(service.getCat().getName());
-        System.out.println(service.getBird().getName());
-        System.out.println(service.getLion().getName());
+        System.out.println("\n\t************************");
+        System.out.println("The name of the dog is " + service.getDog().getName());
+        System.out.println("\n\t************************");
+        System.out.println("The name of the cat is " + service.getCat().getName());
+        System.out.println("\n\t************************");
+        System.out.println("The name of the bird is " + service.getBird().getName());
+        System.out.println("\n\t************************");
+        System.out.println("The name of the lion is " + service.getLion().getName());
     }
 }
