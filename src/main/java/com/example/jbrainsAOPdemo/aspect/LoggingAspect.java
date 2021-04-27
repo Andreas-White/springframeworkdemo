@@ -63,11 +63,17 @@ public class LoggingAspect {
         System.out.println("Messages displayed before a Bird method is executed");
     }
 
+    // Using JoinPoints
     @Before("allHorseMethods()")
     public void loggingAdviceHorse(JoinPoint joinPoint) {
         System.out.println("Advice displayed before a horse method executes");
         Horse horse = (Horse) joinPoint.getTarget(); // In order to call a horse object to use
         System.out.println(joinPoint.getTarget());
+    }
+
+    @Before("argPointcut()")
+    public void allHorseStringArgs() {
+        System.out.println("advice displayed for Horse method that has String arguments");
     }
 
     // Is if we need to apply the same wild cards for a lot of advices, instead of specifying the wild card
@@ -92,4 +98,7 @@ public class LoggingAspect {
 
     @Pointcut("within(com.example.jbrainsAOPdemo.animals.Horse)")
     public void allHorseMethods() {}
+
+    @Pointcut("args(String)")
+    public void argPointcut() {}
 }
