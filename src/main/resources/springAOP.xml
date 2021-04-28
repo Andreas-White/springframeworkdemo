@@ -51,5 +51,5 @@
 
     <!-- In order spring to find the aspect class (LoggingAspect) -->
     <bean id="loggingAspect"
-          class="com.example.jbrainsAOPdemo.aspect.LoggingAspect"/>
+          class="com.example.jbrainsAOPdemo.aspect.LoggingAspectAfter"/>
 </beans>

@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
-public class LoggingAspect {
+public class LoggingAspectBefore {
 
     // Runs this method before the specified method in the Before annotation
     @Before("execution(public * com.example.jbrainsAOPdemo.animals.Dog.get*())")
@@ -22,9 +22,9 @@ public class LoggingAspect {
     }
 
     // This is best practise to combine Pointcuts
-    @Before("allCat() && allDogGetters()")
+    @Before("allCat() && allCat()")
     public void allCatGetters() {
-        System.out.println("This advice will be displayed before every get method from Cat class is executed");
+        System.out.println("This advice will be displayed before every get method from Cat class when executed");
     }
 
     // Runs this method before the specified method in the Before annotation
@@ -95,6 +95,9 @@ public class LoggingAspect {
 
     @Pointcut("within(com.example.jbrainsAOPdemo.animals.Cat)")
     public void allCat() {}
+
+    @Pointcut("execution(* *get*(..))")
+    public void allGetters() {}
 
     @Pointcut("within(com.example.jbrainsAOPdemo.animals.Horse)")
     public void allHorseMethods() {}
