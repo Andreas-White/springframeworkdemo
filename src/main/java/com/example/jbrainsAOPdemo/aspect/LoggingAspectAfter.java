@@ -1,8 +1,6 @@
 package com.example.jbrainsAOPdemo.aspect;
 
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 
 @Aspect
 public class LoggingAspectAfter {
@@ -14,8 +12,31 @@ public class LoggingAspectAfter {
 
     @After("allCat() && allMakeNoise()")
     public void loggingAdviceCatMakeNoise() {
-        System.out.println("This Logging Advice is displayed before the execution of the makeNoise() method in Cat class");
+        System.out.println("This Logging Advice is displayed after the execution of the makeNoise() method in Cat class");
     }
+
+    @AfterReturning("afterSetter(name) && allCat()")
+    public void loggingAdviceCatAfterReturning(String name) {
+        System.out.println("This Logging Advice is displayed after the execution of a setter method in Cat class with " +
+                "argument: " + name);
+    }
+
+    @AfterThrowing("afterThrowHorse()")
+    public void loggingAdviceHorseAfterThrow() {
+        System.out.println("This Logging Advice is displayed after an exception is thrown in Horse class");
+    }
+
+    @AfterReturning(value = "allMakeNoise()",returning = "name")
+    public void loggingAdviceHorseReturnString(String name) {
+        System.out.println("This Logging Advice is displayed after the returning of a String in Horse class" +
+                " with value \"" + name +"\"");
+    }
+
+    @Pointcut("args(String)")
+    public void afterThrowHorse() {}
+
+    @Pointcut("args(name)")
+    public void afterSetter(String name) {}
 
     @Pointcut("within(com.example.jbrainsAOPdemo.animals.Cat)")
     public void allCat() {}

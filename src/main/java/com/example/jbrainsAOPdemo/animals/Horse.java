@@ -10,10 +10,12 @@ public class Horse {
 
     public void setName(String name) {
         this.name = name;
+        //throw (new RuntimeException());
     }
 
-    public void makeNoise() {
+    public String makeNoise() {
         System.out.println("The horse makes a horse noise");
+        return "The horse makes a horse noise";
     }
 
 }
