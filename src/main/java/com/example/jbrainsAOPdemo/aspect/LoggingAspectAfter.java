@@ -1,5 +1,7 @@
 package com.example.jbrainsAOPdemo.aspect;
 
+import com.example.jbrainsAOPdemo.animals.Horse;
+import com.example.jbrainsAOPdemo.service.AnimalService;
 import org.aspectj.lang.annotation.*;
 
 @Aspect
@@ -32,6 +34,11 @@ public class LoggingAspectAfter {
                 " with value \"" + name +"\"");
     }
 
+    @AfterReturning(value = "allHorse() && allGetters()",returning = "name")
+    public void loggingAdviceHorseGetterReturnString(String name) {
+        System.out.println("This logging advice displays the name of the horse as " + name);
+    }
+
     @Pointcut("args(String)")
     public void afterThrowHorse() {}
 
@@ -40,6 +47,9 @@ public class LoggingAspectAfter {
 
     @Pointcut("within(com.example.jbrainsAOPdemo.animals.Cat)")
     public void allCat() {}
+
+    @Pointcut("within(com.example.jbrainsAOPdemo.animals.Horse)")
+    public void allHorse() {}
 
     @Pointcut("execution(* *makeNoise*())")
     public void allMakeNoise() {}
