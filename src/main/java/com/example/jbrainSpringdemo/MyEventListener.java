@@ -9,6 +9,6 @@ public class MyEventListener implements ApplicationListener {
 
     @Override
     public void onApplicationEvent(ApplicationEvent applicationEvent) {
-        System.out.println(applicationEvent.toString() + " " + applicationEvent.getTimestamp());
+        System.out.println(applicationEvent.toString() + " Listens " + applicationEvent.getTimestamp());
     }
 }
