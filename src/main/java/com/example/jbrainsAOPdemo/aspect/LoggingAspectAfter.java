@@ -21,9 +21,9 @@ public class LoggingAspectAfter {
                 "argument: " + name);
     }
 
-    @AfterThrowing("afterThrowHorse()")
-    public void loggingAdviceHorseAfterThrow() {
-        System.out.println("This Logging Advice is displayed after an exception is thrown in Horse class");
+    @AfterThrowing(value = "afterThrowHorse()", throwing = "exception")
+    public void loggingAdviceHorseAfterThrow(RuntimeException exception) {
+        System.out.println("This Logging Advice is displayed after an exception \"" + exception.getMessage() +"\" is thrown in Horse class");
     }
 
     @AfterReturning(value = "allMakeNoise()",returning = "name")

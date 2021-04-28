@@ -3,6 +3,7 @@ package com.example.jbrainsAOPdemo.animals;
 public class Horse {
 
     private String name;
+    //private RuntimeException exception;
 
     public String getName() {
         return name;
@@ -10,7 +11,8 @@ public class Horse {
 
     public void setName(String name) {
         this.name = name;
-        //throw (new RuntimeException());
+        /*exception = new RuntimeException();
+        throw exception;*/
     }
 
     public String makeNoise() {
