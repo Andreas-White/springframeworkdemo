@@ -10,7 +10,7 @@ public class LoggingAspectAround {
     * ProceedingJoinPoint.proceed(); is reached. For example with if/else statements we can check that
     * certain requirements are met before proceeding to the execution of the target method.
     * Also with @Around we can modify the returned object, unlike to @AfterReturning*/
-    @Around("allGetters()")
+    @Around("@annotation(MyAroundAdvice)")
     public Object aroundAdvice(ProceedingJoinPoint joinPoint) {
 
         Object returnedValue = null;
@@ -27,6 +27,4 @@ public class LoggingAspectAround {
         return returnedValue;
     }
 
-    @Pointcut("execution(* get*())")
-    public void allGetters() {}
 }

@@ -1,5 +1,6 @@
 package com.example.jbrainsAOPdemo.animals;
 
+import com.example.jbrainsAOPdemo.aspect.MyAroundAdvice;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,6 +9,7 @@ public class Horse {
     private String name;
     //private RuntimeException exception;
 
+    @MyAroundAdvice
     public String getName() {
         return name;
     }
