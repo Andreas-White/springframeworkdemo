@@ -1,7 +1,5 @@
 package com.example.jbrainsAOPdemo.aspect;
 
-import com.example.jbrainsAOPdemo.animals.Horse;
-import com.example.jbrainsAOPdemo.service.AnimalService;
 import org.aspectj.lang.annotation.*;
 
 @Aspect

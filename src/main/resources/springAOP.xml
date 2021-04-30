@@ -53,6 +53,8 @@
     <!--<bean id="loggingAspectBefore"
           class="com.example.jbrainsAOPdemo.aspect.LoggingAspectBefore"/>-->
     <!-- In order spring to find the aspect class (LoggingAspect) / displays Advice after execution -->
-    <bean id="loggingAspectAfter"
-          class="com.example.jbrainsAOPdemo.aspect.LoggingAspectAfter"/>
+    <!--<bean id="loggingAspectAfter"
+          class="com.example.jbrainsAOPdemo.aspect.LoggingAspectAfter"/>-->
+    <bean id="loggingAspectAround"
+          class="com.example.jbrainsAOPdemo.aspect.LoggingAspectAround"/>
 </beans>
