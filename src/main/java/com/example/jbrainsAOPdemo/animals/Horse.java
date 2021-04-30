@@ -1,5 +1,8 @@
 package com.example.jbrainsAOPdemo.animals;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Horse {
 
     private String name;

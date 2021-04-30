@@ -1,23 +1,32 @@
 package com.example.jbrainsAOPdemo.aspect;
 
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 
 @Aspect
 public class LoggingAspectAround {
 
-    @Before("beforeAfterMakeNoise()")
-    public void loggingAdviceBeforeMakeNoise() {
-        System.out.println("An advice displayed before execution of makeNoise() method");
+    /*We can decide if the execution of the target method is going to be executed with statements before
+    * ProceedingJoinPoint.proceed(); is reached. For example with if/else statements we can check that
+    * certain requirements are met before proceeding to the execution of the target method.
+    * Also with @Around we can modify the returned object, unlike to @AfterReturning*/
+    @Around("allGetters()")
+    public Object aroundAdvice(ProceedingJoinPoint joinPoint) {
+
+        Object returnedValue = null;
+        try {
+            System.out.println("Before Advice");
+            returnedValue = joinPoint.proceed();
+            System.out.println("After Advice");
+        } catch (Throwable throwable) {
+            System.out.println("After throwing exception");
+            throwable.printStackTrace();
+        }
+        System.out.println("After Finally");
+
+        return returnedValue;
     }
 
-    @After("beforeAfterMakeNoise()")
-    public void loggingAdviceAfterMakeNoise() {
-        System.out.println("An advice displayed after execution of makeNoise() method");
-    }
-
-    @Pointcut("execution(* *makeNoise(..))")
-    public void beforeAfterMakeNoise() {}
+    @Pointcut("execution(* get*())")
+    public void allGetters() {}
 }

@@ -17,7 +17,7 @@ public class AnimalService {
     }
 
     @Autowired
-    @Qualifier("horseQ")
+    //@Qualifier("horseQ")
     public void setHorse(Horse horse) {
         this.horse = horse;
         this.horse.makeNoise();
