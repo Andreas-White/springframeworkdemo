@@ -20,7 +20,7 @@ public class AOPMain {
         System.out.println("The name of the bird is " + service.getBird().getName());
         System.out.println("\n\t************************");
         System.out.println("The name of the lion is " + service.getLion().getName());
-        service.getHorse().setName("Klara");
+        //service.getHorse().setName("Klara");
         System.out.println("\n\t************************");
         System.out.println("The name of the horse is " + service.getHorse().getName());
     }

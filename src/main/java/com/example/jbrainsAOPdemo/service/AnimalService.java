@@ -50,7 +50,7 @@ public class AnimalService {
     }
 
     @Autowired
-    @Qualifier("catQ")
+    //@Qualifier("catQ")
     public void setCat(Cat cat) {
         this.cat = cat;
         this.cat.makeNoise();

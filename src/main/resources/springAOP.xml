@@ -24,11 +24,11 @@
         <property name="name" value="${dog.name}"/>
         <qualifier value="dogQ"/>
     </bean>
-    <bean id="cat"
+    <!--<bean id="cat"
           class="com.example.jbrainsAOPdemo.animals.Cat">
         <property name="name" value="${cat.name}"/>
         <qualifier value="catQ"/>
-    </bean>
+    </bean>-->
     <bean id="bird"
           class="com.example.jbrainsAOPdemo.animals.Bird">
         <property name="name" value="${bird.name}"/>

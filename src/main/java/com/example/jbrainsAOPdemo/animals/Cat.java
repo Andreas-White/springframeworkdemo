@@ -1,5 +1,6 @@
 package com.example.jbrainsAOPdemo.animals;
 
+import com.example.jbrainsAOPdemo.aspect.MyAroundAdvice;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,6 +12,7 @@ public class Cat {
         return name;
     }
 
+    @MyAroundAdvice
     public void setName(String name) {
         this.name = name;
     }
