@@ -49,7 +49,7 @@
     <bean id="animalService"
           class="com.example.jbrainsAOPdemo.service.AnimalService"/>
 
-    
+
     <!-- In order spring to find the aspect class (LoggingAspect) / displays Advice before execution -->
     <!--<bean id="loggingAspectBefore"
           class="com.example.jbrainsAOPdemo.aspect.LoggingAspectBefore"/>-->
