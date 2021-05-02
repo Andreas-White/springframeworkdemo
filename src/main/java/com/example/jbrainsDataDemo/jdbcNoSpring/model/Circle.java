@@ -1,4 +1,4 @@
-package com.example.jbrainsDataDemo.model;
+package com.example.jbrainsDataDemo.jdbcNoSpring.model;
 
 public class Circle {
 
