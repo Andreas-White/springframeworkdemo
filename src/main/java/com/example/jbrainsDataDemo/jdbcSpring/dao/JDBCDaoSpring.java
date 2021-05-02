@@ -1,19 +1,34 @@
 package com.example.jbrainsDataDemo.jdbcSpring.dao;
 
 import com.example.jbrainsDataDemo.jdbcSpring.model.Circle;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import javax.sql.DataSource;
 import java.sql.*;
 
-public class JDBCDao {
+@Component
+public class JDBCDaoSpring {
+
+    @Autowired
+    private DataSource dataSource;
+
+    public DataSource getDataSource() {
+        return dataSource;
+    }
+
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     public Circle getCircle(int circleId) {
+
         Connection conn = null;
 
-        String driver = "org.apache.derby.jdbc.ClientDriver";
         try {
 
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection("jdbc:derby://localhost:1527/db");
+
+            conn = dataSource.getConnection();
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM circle WHERE id=?");
             statement.setInt(1,circleId);
 
@@ -28,7 +43,7 @@ public class JDBCDao {
             result.close();
 
             return circle;
-        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }finally {
             try {
