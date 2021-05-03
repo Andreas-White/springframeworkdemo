@@ -13,11 +13,13 @@ public class JDBCSpring {
         ApplicationContext context = new ClassPathXmlApplicationContext("springJdbc.xml");
 
         JDBCDaoSpring dao = context.getBean("JDBCDaoSpring", JDBCDaoSpring.class);
+        //dao.insertCircle(2,"Second Circle");
+        //dao.deleteCircle(2);
         Circle circle = dao.getCircle(1);
         System.out.println("Circle with id: " + circle.getId() + " and name: " + circle.getName());
         String circleName = dao.getCircleName(1);
         System.out.println(circleName);
-        System.out.println(dao.getCircleCount());
+        System.out.println("There are " + dao.getCircleCount() + " Circle Objects in the database");
         List<Circle> circleList = dao.getAllCircles();
         for (Circle c: circleList) {
             System.out.println("Circle with id: " + c.getId() + " and name: " + c.getName());

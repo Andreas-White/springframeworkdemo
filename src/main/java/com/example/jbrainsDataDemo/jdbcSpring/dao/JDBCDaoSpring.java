@@ -48,6 +48,16 @@ public class JDBCDaoSpring {
         return jdbcTemplate.query(sqlSelectAllCircles,new CircleMapper());
     }
 
+    public void insertCircle(int id, String name) {
+        String sqlInsertCircle = "INSERT INTO circle(ID, NAME) VALUES(?,?)";
+        jdbcTemplate.update(sqlInsertCircle,id,name);
+    }
+
+    public void deleteCircle(int id) {
+        String sqlDeleteCircle = "DELETE FROM circle WHERE id = ?";
+        jdbcTemplate.update(sqlDeleteCircle,id);
+    }
+
     private static final class CircleMapper implements RowMapper<Circle> {
 
         @Override
