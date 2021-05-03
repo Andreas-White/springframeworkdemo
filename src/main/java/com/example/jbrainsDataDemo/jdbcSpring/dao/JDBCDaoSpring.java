@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Component
 public class JDBCDaoSpring {
@@ -36,10 +37,15 @@ public class JDBCDaoSpring {
         String sqlGetCircleName = "SELECT name FROM circle WHERE id=?";
         return jdbcTemplate.queryForObject(sqlGetCircleName,new Object[] {circleId},String.class);
     }
-    
+
     public int getCircleCount() {
         String sqlCount = "SELECT COUNT(*) FROM CIRCLE";
         return jdbcTemplate.queryForObject(sqlCount,Integer.class);
+    }
+
+    public List<Circle> getAllCircles() {
+        String sqlSelectAllCircles = "SELECT * FROM circle";
+        return jdbcTemplate.query(sqlSelectAllCircles,new CircleMapper());
     }
 
     private static final class CircleMapper implements RowMapper<Circle> {
