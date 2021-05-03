@@ -15,7 +15,7 @@ public class JDBCDaoSpring {
 
 
     private DataSource dataSource;
-    private JdbcTemplate jdbcTemplate = new JdbcTemplate();
+    private JdbcTemplate jdbcTemplate;
 
     public JdbcTemplate getJdbcTemplate() { return jdbcTemplate; }
 
@@ -48,14 +48,14 @@ public class JDBCDaoSpring {
         return jdbcTemplate.query(sqlSelectAllCircles,new CircleMapper());
     }
 
-    public void insertCircle(int id, String name) {
+    public void insertCircle(Circle circle) {
         String sqlInsertCircle = "INSERT INTO circle(ID, NAME) VALUES(?,?)";
-        jdbcTemplate.update(sqlInsertCircle,id,name);
+        jdbcTemplate.update(sqlInsertCircle,circle.getId(),circle.getName());
     }
 
-    public void deleteCircle(int id) {
+    public void deleteCircle(Circle circle) {
         String sqlDeleteCircle = "DELETE FROM circle WHERE id = ?";
-        jdbcTemplate.update(sqlDeleteCircle,id);
+        jdbcTemplate.update(sqlDeleteCircle,circle.getId());
     }
 
     private static final class CircleMapper implements RowMapper<Circle> {
