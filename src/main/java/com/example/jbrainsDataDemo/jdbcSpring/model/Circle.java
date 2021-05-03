@@ -10,6 +10,8 @@ public class Circle {
         this.name = name;
     }
 
+    public Circle() {}
+
     public int getId() {
         return id;
     }

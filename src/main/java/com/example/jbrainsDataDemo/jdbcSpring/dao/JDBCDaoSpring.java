@@ -3,10 +3,11 @@ package com.example.jbrainsDataDemo.jdbcSpring.dao;
 import com.example.jbrainsDataDemo.jdbcSpring.model.Circle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
-
 import javax.sql.DataSource;
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @Component
 public class JDBCDaoSpring {
@@ -26,13 +27,29 @@ public class JDBCDaoSpring {
     @Autowired
     public void setDataSource(DataSource dataSource) { this.jdbcTemplate = new JdbcTemplate(dataSource); }
 
-    public String getCircleName(int circleId) {
-        String sqlGetCircle = "SELECT name FROM circle WHERE id=?";
-        return jdbcTemplate.queryForObject(sqlGetCircle,new Object[] {circleId},String.class);
+    public Circle getCircle(int circleId) {
+        String sqlGetCircle = "SELECT * FROM circle WHERE id=?";
+        return jdbcTemplate.queryForObject(sqlGetCircle,new Object[] {circleId},new CircleMapper());
     }
 
+    public String getCircleName(int circleId) {
+        String sqlGetCircleName = "SELECT name FROM circle WHERE id=?";
+        return jdbcTemplate.queryForObject(sqlGetCircleName,new Object[] {circleId},String.class);
+    }
+    
     public int getCircleCount() {
         String sqlCount = "SELECT COUNT(*) FROM CIRCLE";
         return jdbcTemplate.queryForObject(sqlCount,Integer.class);
+    }
+
+    private static final class CircleMapper implements RowMapper<Circle> {
+
+        @Override
+        public Circle mapRow(ResultSet resultSet, int rowNumber) throws SQLException {
+            Circle circle = new Circle();
+            circle.setId(resultSet.getInt("ID"));
+            circle.setName(resultSet.getString("NAME"));
+            return circle;
+        }
     }
 }
