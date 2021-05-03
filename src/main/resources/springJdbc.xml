@@ -10,6 +10,7 @@
     <context:annotation-config/>
     <context:component-scan base-package="com.example.jbrainsDataDemo.jdbcSpring"/>
 
+    <!-- Bean for the DataSource class variable, we can define properties here that will be used to all DAO methods -->
     <bean id="dataSource"
           class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver"/>
@@ -18,4 +19,8 @@
         <property name="maxTotal" value="5"/>
     </bean>
 
+    <!--<bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>-->
 </beans>

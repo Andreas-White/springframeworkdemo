@@ -11,8 +11,8 @@ public class JDBCSpring {
         ApplicationContext context = new ClassPathXmlApplicationContext("springJdbc.xml");
 
         JDBCDaoSpring dao = context.getBean("JDBCDaoSpring", JDBCDaoSpring.class);
-        Circle circle = dao.getCircle(1);
-        System.out.println(circle.getName());
+        String circleName = dao.getCircleName(1);
+        System.out.println(circleName);
         System.out.println(dao.getCircleCount());
     }
 }

@@ -24,47 +24,15 @@ public class JDBCDaoSpring {
     }
 
     @Autowired
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+    public void setDataSource(DataSource dataSource) { this.jdbcTemplate = new JdbcTemplate(dataSource); }
 
-    public Circle getCircle(int circleId) {
-
-        Connection conn = null;
-
-        try {
-
-            conn = dataSource.getConnection();
-
-            PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM circle WHERE id=?");
-            preparedStatement.setInt(1,circleId);
-
-            Circle circle = null;
-            ResultSet result = preparedStatement.executeQuery();
-
-            if (result.next()) {
-                circle = new Circle(circleId, result.getString("name"));
-            }
-
-            preparedStatement.close();
-            result.close();
-
-            return circle;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            try {
-                conn.close();
-            } catch (SQLException throwable) {
-                throwable.printStackTrace();
-            }
-        }
-        return null;
+    public String getCircleName(int circleId) {
+        String sqlGetCircle = "SELECT name FROM circle WHERE id=?";
+        return jdbcTemplate.queryForObject(sqlGetCircle,new Object[] {circleId},String.class);
     }
 
     public int getCircleCount() {
-        String sql = "SELECT COUNT(*) FROM CIRCLE";
-        jdbcTemplate.setDataSource(getDataSource());
-        return jdbcTemplate.queryForObject(sql,Integer.class);
+        String sqlCount = "SELECT COUNT(*) FROM CIRCLE";
+        return jdbcTemplate.queryForObject(sqlCount,Integer.class);
     }
 }
