@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
@@ -18,6 +21,7 @@ public class JDBCDaoSpring {
 
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public JdbcTemplate getJdbcTemplate() { return jdbcTemplate; }
 
@@ -28,7 +32,11 @@ public class JDBCDaoSpring {
     }
 
     @Autowired
-    public void setDataSource(DataSource dataSource) { this.jdbcTemplate = new JdbcTemplate(dataSource); }
+    public void setDataSource(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
+        // With this you can use named parameters in the queries
+        this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+    }
 
     // Returns a Circle object with the specified id
     public Circle getCircle(int circleId) {
@@ -74,16 +82,21 @@ public class JDBCDaoSpring {
     }
 
     // Inserts the specified Triangle object to the database
+    // Using NamedParameterJdbcTemplate and SqlParameterSource classes
     public void insertTriangle(Triangle triangle) {
-        String sqlInsert = "INSERT INTO triangle(ID, NAME) VALUES (?,?)";
-        jdbcTemplate.update(sqlInsert,triangle.getId(),triangle.getName());
+        String sqlInsert = "INSERT INTO triangle(ID, NAME) VALUES (:id,:name)";
+        SqlParameterSource parameterSource = new MapSqlParameterSource("id",triangle.getId())
+                                                            .addValue("name", triangle.getName());
+        namedParameterJdbcTemplate.update(sqlInsert,parameterSource);
     }
 
     // Deletes the specified Triangle object to the database
+    // Using NamedParameterJdbcTemplate and SqlParameterSource classes
     public boolean deleteTriangle(Triangle triangle) {
         try {
-            String sqlDelete = "DELETE FROM triangle WHERE ID=?";
-            jdbcTemplate.update(sqlDelete,triangle.getId());
+            String sqlDelete = "DELETE FROM triangle WHERE id = :id";
+            SqlParameterSource parameterSource = new MapSqlParameterSource("id",triangle.getId());
+            namedParameterJdbcTemplate.update(sqlDelete,parameterSource);
             return true;
         } catch (DataAccessException e) {
             e.printStackTrace();
@@ -92,9 +105,10 @@ public class JDBCDaoSpring {
     }
 
     // Returns a list with all the Triangle objects
+    // Using NamedParameterJdbcTemplate class
     public List<Triangle> getAllTriangles() {
         String sqlAllTriangles = "SELECT * FROM triangle";
-        return jdbcTemplate.query(sqlAllTriangles,new TriangleMapper());
+        return namedParameterJdbcTemplate.query(sqlAllTriangles,new TriangleMapper());
     }
 
     // Implementation of RowMapper class in order to fetch Circle objects by specifying an attribute

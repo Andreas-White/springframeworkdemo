@@ -16,6 +16,7 @@ public class JDBCSpring {
         JDBCDaoSpring dao = context.getBean("JDBCDaoSpring", JDBCDaoSpring.class);
 
         // Manipulation of Circle objects
+
         Circle circle3 = new Circle(3,"Third Circle");
         Circle circle4 = new Circle(4,"Fourth Circle");
         /*dao.insertCircle(circle3);
@@ -32,17 +33,18 @@ public class JDBCSpring {
         }
 
         // Manipulation of Circle objects
-        /*dao.createTriangleTable();
-        Triangle triangle1 = new Triangle(1,"First Triangle");
-        Triangle triangle2 = new Triangle(2,"Second Triangle");
 
-        if (dao.deleteTriangle(triangle2))
+        //dao.createTriangleTable();
+        Triangle triangle3 = new Triangle(3,"Third Triangle");
+        Triangle triangle4 = new Triangle(4,"Fourth Triangle");
+        //dao.insertTriangle(triangle3);
+        //dao.insertTriangle(triangle4);
+        if (dao.deleteTriangle(triangle4))
             System.out.println("Triangle deleted successfully");
-        dao.insertTriangle(triangle1);
-        dao.insertTriangle(triangle2);*/
+
         List<Triangle> triangles = dao.getAllTriangles();
         for (Triangle t: triangles) {
-            System.out.println("Circle with id: " + t.getId() + " and name: " + t.getName());
+            System.out.println("Triangle with id: " + t.getId() + " and name: " + t.getName());
         }
     }
 }
