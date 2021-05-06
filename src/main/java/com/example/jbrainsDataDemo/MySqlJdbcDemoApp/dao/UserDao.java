@@ -1,7 +1,6 @@
 package com.example.jbrainsDataDemo.MySqlJdbcDemoApp.dao;
 
 import com.example.jbrainsDataDemo.MySqlJdbcDemoApp.model.User;
-import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Component
 public class UserDao extends JdbcDaoSupport {
@@ -32,15 +32,40 @@ public class UserDao extends JdbcDaoSupport {
 
     public void updateUserName(User user, String newName) {
         String sql = "UPDATE users SET name=? WHERE id=?";
+        assert this.getJdbcTemplate() != null;
         this.getJdbcTemplate().update(sql,newName,user.getId());
     }
 
     public void updatePassword(User user, String newPassword) {
         String sql = "UPDATE users SET password=? WHERE id=?";
+        assert this.getJdbcTemplate() != null;
         this.getJdbcTemplate().update(sql,newPassword,user.getId());
     }
 
-    
+    public int getTotalNumberUsers() {
+        String sql = "SELECT COUNT(*) FROM users";
+        assert this.getJdbcTemplate() != null;
+        return this.getJdbcTemplate().queryForObject(sql,Integer.TYPE);
+    }
+
+    public String getUserName(int id) {
+        String sql = "SELECT name FROM users WHERE id=?";
+        assert this.getJdbcTemplate() != null;
+        return this.getJdbcTemplate().queryForObject(sql,new Object[] {id},String.class);
+    }
+
+    public List<User> getAllUsers() {
+        String sql = "SELECT * FROM users";
+        assert this.getJdbcTemplate() != null;
+        return this.getJdbcTemplate().query(sql,new UserMapper());
+    }
+
+    public User getUser(int id) {
+        String sql = "SELECT * FROM users WHERE id=?";
+        assert this.getJdbcTemplate() != null;
+        return this.getJdbcTemplate().queryForObject(sql,new Object[] {id},new UserMapper());
+    }
+
 
     private static final class UserMapper implements RowMapper<User> {
 
