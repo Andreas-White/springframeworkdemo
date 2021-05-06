@@ -28,6 +28,7 @@ public class JDBCDaoCircle extends JdbcDaoSupport {
     // Returns the Circle's name as a String with the specified id
     public String getCircleName(int circleId) {
         String sqlGetCircleName = "SELECT name FROM circle WHERE id=?";
+        assert this.getJdbcTemplate() != null;
         return this.getJdbcTemplate().queryForObject(sqlGetCircleName,new Object[] {circleId},String.class);
     }
 
