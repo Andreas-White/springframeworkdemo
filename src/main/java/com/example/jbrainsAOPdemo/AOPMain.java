@@ -14,7 +14,6 @@ public class AOPMain {
         System.out.println("\n\t************************");
         System.out.println("The name of the dog is " + service.getDog().getName());
         System.out.println("\n\t************************");
-        service.getCat().setName("Lara");
         System.out.println("The name of the cat is " + service.getCat().getName());
         System.out.println("\n\t************************");
         System.out.println("The name of the bird is " + service.getBird().getName());

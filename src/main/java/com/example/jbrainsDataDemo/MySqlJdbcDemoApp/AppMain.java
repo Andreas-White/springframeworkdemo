@@ -19,10 +19,10 @@ public class AppMain {
         User user3 = new User(3,"Lara","@@46543##lm");
         User user4 = new User(4,"Bob","1234##544646");
         User user5 = new User(5,"Tina","poorPassword");
-        dao.insertUser(user3);
+        /*dao.insertUser(user3);
         dao.insertUser(user4);
         dao.insertUser(user5);
-        dao.deleteUser(user4);
+        dao.deleteUser(user4);*/
 
         System.out.println("*************************");
         System.out.println("The name of user with id 5 is: " + dao.getUserName(user5.getId()));

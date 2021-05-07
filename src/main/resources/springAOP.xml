@@ -18,37 +18,9 @@
         <property name="locations" value="animalconfig.properties"/>
     </bean>
 
-
-    <bean id="dog"
-          class="com.example.jbrainsAOPdemo.animals.Dog">
-        <property name="name" value="${dog.name}"/>
-        <qualifier value="dogQ"/>
-    </bean>
-    <!--<bean id="cat"
-          class="com.example.jbrainsAOPdemo.animals.Cat">
-        <property name="name" value="${cat.name}"/>
-        <qualifier value="catQ"/>
-    </bean>-->
-    <bean id="bird"
-          class="com.example.jbrainsAOPdemo.animals.Bird">
-        <property name="name" value="${bird.name}"/>
-        <qualifier value="birdQ"/>
-    </bean>
-    <bean id="lion"
-          class="com.example.jbrainsAOPdemo.animals.Lion">
-        <property name="name" value="${lion.name}"/>
-        <qualifier value="lionQ"/>
-    </bean>
-    <!--<bean id="horse"
-          class="com.example.jbrainsAOPdemo.animals.Horse">
-        <property name="name" value="${horse.name}"/>
-        <qualifier value="horseQ"/>
-    </bean>-->
-
     <!-- A Bean for the AnimalService class to Autowire the Animal classes -->
     <bean id="animalService"
           class="com.example.jbrainsAOPdemo.service.AnimalService"/>
-
 
     <!-- In order spring to find the aspect class (LoggingAspect) / displays Advice before execution -->
     <!--<bean id="loggingAspectBefore"
@@ -59,6 +31,32 @@
     <bean id="loggingAspectAround"
           class="com.example.jbrainsAOPdemo.aspect.LoggingAspectAround"/>
 
+
+    <!--<bean id="dog"
+          class="com.example.jbrainsAOPdemo.animals.Dog">
+        <property name="name" value="${dog.name}"/>
+        <qualifier value="dogQ"/>
+    </bean>
+    <bean id="cat"
+          class="com.example.jbrainsAOPdemo.animals.Cat">
+        <property name="name" value="${cat.name}"/>
+        <qualifier value="catQ"/>
+    </bean>
+    <bean id="bird"
+          class="com.example.jbrainsAOPdemo.animals.Bird">
+        <property name="name" value="${bird.name}"/>
+        <qualifier value="birdQ"/>
+    </bean>
+    <bean id="lion"
+          class="com.example.jbrainsAOPdemo.animals.Lion">
+        <property name="name" value="${lion.name}"/>
+        <qualifier value="lionQ"/>
+    </bean>
+    <bean id="horse"
+          class="com.example.jbrainsAOPdemo.animals.Horse">
+        <property name="name" value="${horse.name}"/>
+        <qualifier value="horseQ"/>
+    </bean>-->
 
     <!-- This aop: config replaces the Aspect class LoggingAspectAround -->
     <!--<aop:config>
